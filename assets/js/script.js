@@ -113,84 +113,84 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- 5. HERO INTERACTIVE PARTICLE CANVAS ---
+  // --- 5. HERO INTERACTIVE CANVAS (Subtle charcoal dots matching the portfolio) ---
   const canvas = document.getElementById("hero-canvas");
-  const ctx = canvas.getContext("2d");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
 
-  let particlesArray = [];
-  const maxParticles = 50;
-  
-  // Fit canvas to hero size
-  function resizeCanvas() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
-  }
-  resizeCanvas();
-  window.addEventListener("resize", resizeCanvas);
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 1.5 + 1;
-      this.speedX = Math.random() * 0.3 - 0.15;
-      this.speedY = Math.random() * 0.3 - 0.15;
+    let particlesArray = [];
+    const maxParticles = 40;
+    
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
     }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-      // Wrap around bounds
-      if (this.x < 0) this.x = canvas.width;
-      if (this.x > canvas.width) this.x = 0;
-      if (this.y < 0) this.y = canvas.height;
-      if (this.y > canvas.height) this.y = 0;
-    }
-    draw() {
-      ctx.fillStyle = "rgba(255, 125, 59, 0.25)";
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 1;
+        this.speedX = Math.random() * 0.2 - 0.1;
+        this.speedY = Math.random() * 0.2 - 0.1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-  function initParticles() {
-    particlesArray = [];
-    for (let i = 0; i < maxParticles; i++) {
-      particlesArray.push(new Particle());
+        if (this.x < 0) this.x = canvas.width;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.y < 0) this.y = canvas.height;
+        if (this.y > canvas.height) this.y = 0;
+      }
+      draw() {
+        ctx.fillStyle = "rgba(17, 17, 17, 0.15)";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
     }
-  }
-  initParticles();
 
-  function handleParticles() {
-    for (let i = 0; i < particlesArray.length; i++) {
-      particlesArray[i].update();
-      particlesArray[i].draw();
-      
-      // Draw connecting web lines
-      for (let j = i + 1; j < particlesArray.length; j++) {
-        const dx = particlesArray[i].x - particlesArray[j].x;
-        const dy = particlesArray[i].y - particlesArray[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+    function initParticles() {
+      particlesArray = [];
+      for (let i = 0; i < maxParticles; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+    initParticles();
+
+    function handleParticles() {
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
         
-        if (distance < 130) {
-          ctx.strokeStyle = `rgba(0, 225, 236, ${0.1 - distance/130})`;
-          ctx.lineWidth = 0.6;
-          ctx.beginPath();
-          ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-          ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-          ctx.stroke();
+        // Connecting web lines
+        for (let j = i + 1; j < particlesArray.length; j++) {
+          const dx = particlesArray[i].x - particlesArray[j].x;
+          const dy = particlesArray[i].y - particlesArray[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 140) {
+            ctx.strokeStyle = `rgba(17, 17, 17, ${0.06 - distance/140})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+            ctx.stroke();
+          }
         }
       }
     }
-  }
 
-  function renderLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    handleParticles();
-    requestAnimationFrame(renderLoop);
+    function renderLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      handleParticles();
+      requestAnimationFrame(renderLoop);
+    }
+    renderLoop();
   }
-  renderLoop();
 
   // --- 6. DYNAMIC CARDS SPOTLIGHT / GLOW EFFECT ---
   const updateSpotlight = (e) => {
@@ -202,9 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  // Re-run whenever cards are interacted with
   function setupSpotlightOnCards() {
-    const glassCards = document.querySelectorAll(".glass-card");
+    const glassCards = document.querySelectorAll(".tactile-card, .widget-terminal, .widget-stats, .widget-github");
     glassCards.forEach((card) => {
       card.addEventListener("mousemove", updateSpotlight);
     });
@@ -215,12 +214,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Git Contributions Generator
   const contribGrid = document.getElementById("github-contrib-grid");
   if (contribGrid) {
-    const cellsCount = 14 * 7; // columns x rows grid
+    const cellsCount = 14 * 7;
     for (let i = 0; i < cellsCount; i++) {
       const cell = document.createElement("div");
       cell.classList.add("github-cell");
       
-      // Assign mock contribution level randomly
       const rand = Math.random();
       if (rand > 0.85) {
         cell.classList.add("lvl-4");
@@ -253,26 +251,23 @@ document.addEventListener("DOMContentLoaded", () => {
         index++;
         setTimeout(typeCommand, 80 + Math.random() * 40);
       } else {
-        // Typing done, reveal responses in order
         setTimeout(() => { if (termLines[0]) termLines[0].style.display = "flex"; }, 400);
         setTimeout(() => { if (termLines[1]) termLines[1].style.display = "flex"; }, 1000);
         setTimeout(() => { if (termLines[2]) termLines[2].style.display = "flex"; }, 1600);
       }
     }
-    // Launch after short screen entry
     setTimeout(typeCommand, 1500);
   }
 
   // --- 8. GSAP ENTRANCE & SCROLL ANIMATIONS ---
-  
-  // Hero Entrance Sequence
   const heroTL = gsap.timeline();
   heroTL.from("#navbar", { y: -80, opacity: 0, duration: 0.8, ease: "power4.out" })
-    .from("#hero-status-tag", { scale: 0.8, opacity: 0, duration: 0.6, ease: "back.out(1.7)" }, "-=0.3")
-    .from("#hero-main-title span", { y: 40, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.4")
-    .from("#hero-description", { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.4")
-    .from("#hero-actions-container a", { scale: 0.9, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power3.out" }, "-=0.4")
-    .from("#hero-widgets-container .floating-widget", { y: 50, opacity: 0, stagger: 0.15, duration: 0.8, ease: "power3.out" }, "-=0.6")
+    .from("#hero-status-tag", { scale: 0.9, opacity: 0, duration: 0.6, ease: "back.out(1.5)" }, "-=0.3")
+    .from("#hero-main-title span", { y: 30, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out" }, "-=0.4")
+    .from("#hero-description", { opacity: 0, y: 15, duration: 0.6, ease: "power3.out" }, "-=0.4")
+    .from("#hero-actions-container a", { scale: 0.95, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power3.out" }, "-=0.4")
+    .from(".hero-visuals", { opacity: 0, y: 30, duration: 0.8, ease: "power3.out" }, "-=0.6")
+    .from("#hero-widgets-container > div", { y: 40, opacity: 0, stagger: 0.15, duration: 0.8, ease: "power3.out" }, "-=0.4")
     .from("#hero-scroll-indicator", { opacity: 0, y: -10, duration: 0.6, ease: "power2.out" }, "-=0.2");
 
   // General reveal helper for sections
@@ -285,23 +280,23 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleActions: "play none none none"
       },
       opacity: 0,
-      y: 40,
+      y: 30,
       duration: 0.8,
       ease: "power3.out"
     });
   });
 
-  // About Section Cards slide-up
-  gsap.from("#about-cards-grid .about-card", {
+  // About Section Cards reveal
+  gsap.from("#about-cards-grid .tactile-card", {
     scrollTrigger: {
       trigger: "#about-cards-grid",
       start: "top 75%",
       toggleActions: "play none none none"
     },
     opacity: 0,
-    y: 50,
+    y: 40,
     duration: 0.8,
-    stagger: 0.15,
+    stagger: 0.12,
     ease: "power3.out"
   });
 
@@ -313,8 +308,8 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleActions: "play none none none"
     },
     opacity: 0,
-    x: 40,
-    duration: 0.9,
+    y: 30,
+    duration: 0.8,
     ease: "power3.out"
   });
 
@@ -326,9 +321,9 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleActions: "play none none none"
     },
     opacity: 0,
-    y: 60,
+    y: 50,
     duration: 0.8,
-    stagger: 0.15,
+    stagger: 0.12,
     ease: "power3.out"
   });
 
@@ -340,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleActions: "play none none none"
     },
     opacity: 0,
-    y: 50,
+    y: 40,
     duration: 0.8,
     stagger: 0.1,
     ease: "power3.out"
@@ -354,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleActions: "play none none none"
     },
     opacity: 0,
-    scale: 0.98,
+    scale: 0.96,
     duration: 0.7,
     stagger: 0.1,
     ease: "power2.out"
@@ -368,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleActions: "play none none none"
     },
     opacity: 0,
-    x: -30,
+    y: 25,
     duration: 0.8,
     ease: "power3.out"
   });
@@ -380,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleActions: "play none none none"
     },
     opacity: 0,
-    x: 30,
+    y: 30,
     duration: 0.8,
     ease: "power3.out"
   });
@@ -413,9 +408,8 @@ document.addEventListener("DOMContentLoaded", () => {
           start: "top 85%",
           toggleActions: "play none none none"
         },
-        snap: { textContent: 1 }, // ensure integers
+        snap: { textContent: 1 },
         onUpdate: function() {
-          // Add "+" to the end of the text on complete if it's the member/commit numbers
           if (this.targets()[0].getAttribute("data-target") === "500") {
             this.targets()[0].textContent = Math.ceil(this.targets()[0].textContent) + "+";
           } else if (this.targets()[0].getAttribute("data-target") === "60") {
@@ -439,29 +433,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const grids = [gridCore, gridMentors, gridContributors];
 
   function toggleGrid(activeTab, activeGrid) {
-    // Highlight correct tab
     tabs.forEach((tab) => {
       if (tab) tab.classList.remove("active");
     });
     activeTab.classList.add("active");
 
-    // Fade out and hide all grids
     grids.forEach((grid) => {
       if (grid) {
         grid.classList.add("hidden");
       }
     });
     
-    // Show correct grid
     activeGrid.classList.remove("hidden");
-    
-    // Re-bind spotlight listener in case new elements rendered
     setupSpotlightOnCards();
 
-    // Trigger grid slide animation using GSAP
     gsap.from(activeGrid.querySelectorAll(".member-card"), {
       opacity: 0,
-      y: 30,
+      y: 25,
       duration: 0.6,
       stagger: 0.08,
       ease: "power2.out"
@@ -494,7 +482,6 @@ document.addEventListener("DOMContentLoaded", () => {
         lightboxImg.src = src;
         lightboxCaption.textContent = captionText;
         lightbox.classList.add("open");
-        // Temporarily pause Lenis scroll
         lenis.stop();
       }
     });
@@ -503,7 +490,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeLightboxModal() {
     if (lightbox) {
       lightbox.classList.remove("open");
-      // Resume Lenis scroll
       lenis.start();
     }
   }
@@ -531,13 +517,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (joinForm && formTerminal) {
     joinForm.addEventListener("submit", (e) => {
-      e.preventDefault(); // Stop page reload
+      e.preventDefault();
       
       const name = document.getElementById("form-name").value.trim();
       const email = document.getElementById("form-email").value.trim();
       const dept = document.getElementById("form-dept").value;
       
-      // Read active interests selected
       const checkedInterests = [];
       document.querySelectorAll(".interest-checkbox:checked").forEach((chk) => {
         checkedInterests.push(chk.value);
@@ -546,7 +531,6 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = true;
       submitBtn.querySelector("span").textContent = "Submitting...";
       
-      // Start typing simulation response
       formTerminal.style.display = "block";
       formTerminal.innerHTML = "";
       
@@ -557,8 +541,8 @@ document.addEventListener("DOMContentLoaded", () => {
         `  -d email="${email}"`,
         `Connecting to community registry database...`,
         `Compiling selection list: [${checkedInterests.join(", ") || "General Interest"}]`,
-        `[success] Registered node successfully synchronised.`,
-        `Welcome to the family, ${name}! Check your mailbox at ${email}.`
+        `[success] Registered successfully to AJCE FOSS database.`,
+        `Welcome to the team, ${name}! We have sent a confirmation email to ${email}.`
       ];
 
       let lineIndex = 0;
@@ -568,24 +552,22 @@ document.addEventListener("DOMContentLoaded", () => {
           const div = document.createElement("div");
           let text = responseLines[lineIndex];
           if (text.startsWith("$") || text.startsWith("  -d")) {
-            div.style.color = "#ff7d3b";
+            div.style.color = "#E87325";
           } else if (text.includes("[success]")) {
-            div.style.color = "#10b981";
+            div.style.color = "#a9e050";
             div.style.fontWeight = "bold";
-          } else if (text.includes("Welcome to the family")) {
-            div.style.color = "#00e1ec";
+          } else if (text.includes("Welcome to the team")) {
+            div.style.color = "#E87325";
             div.style.fontWeight = "bold";
           }
           div.textContent = text;
           formTerminal.appendChild(div);
           
-          // Scroll terminal container to bottom
           formTerminal.scrollTop = formTerminal.scrollHeight;
           
           lineIndex++;
           setTimeout(printTerminalLine, 500 + Math.random() * 200);
         } else {
-          // Done, reset form controls after short wait
           setTimeout(() => {
             joinForm.reset();
             formTerminal.style.display = "none";
@@ -603,7 +585,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const watchSections = document.querySelectorAll("section");
 
   function syncActiveNavLink() {
-    let scrollPos = window.scrollY + 180; // Offset top navbar space
+    let scrollPos = window.scrollY + 180;
     
     watchSections.forEach((section) => {
       const top = section.offsetTop;
@@ -621,5 +603,137 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   window.addEventListener("scroll", syncActiveNavLink);
-  syncActiveNavLink(); // Run once initially
+  syncActiveNavLink();
+
+  // --- 15. DYNAMIC CAMPUS PHOTO SLIDESHOW / HANGER ---
+  const campusImages = [
+    { src: "./assets/images/ajce_college_building.png", caption: "Amal Jyothi Campus" },
+    { src: "./assets/images/college_event_1.jpg", caption: "FOSS Workshop Sprint" },
+    { src: "./assets/images/college_event_2.jpg", caption: "Wikimedia Seminar Meet" },
+    { src: "./assets/images/college_event_3.jpg", caption: "Wikidata Presentation Session" },
+    { src: "./assets/images/college_event_4.jpg", caption: "Lab Hacking & Mentoring" },
+    { src: "./assets/images/college_event_5.jpg", caption: "Wikimedia Technical Summit" }
+  ];
+
+  let currentImageIndex = 0;
+  const collegeCardImg = document.getElementById("college-card-img");
+  const collegeCardCaption = document.getElementById("college-card-caption");
+  const collegeCardWidget = document.getElementById("college-card-widget");
+  const pinL = document.getElementById("hanger-pin-l");
+  const pinR = document.getElementById("hanger-pin-r");
+
+  function changeCampusImage() {
+    if (!collegeCardImg || !collegeCardCaption || !collegeCardWidget) return;
+
+    // Pick a random image index that is not the current one
+    let nextIndex = currentImageIndex;
+    if (campusImages.length > 1) {
+      while (nextIndex === currentImageIndex) {
+        nextIndex = Math.floor(Math.random() * campusImages.length);
+      }
+    } else {
+      nextIndex = 0;
+    }
+    currentImageIndex = nextIndex;
+    const nextImg = campusImages[currentImageIndex];
+
+    const changeTL = gsap.timeline();
+
+    // 1. Unpin Left: Left pin springs up, card pivots on the Right pin (80% 0%) and swings down heavily
+    changeTL.to(pinL, {
+      y: -15,
+      rotation: -15,
+      duration: 0.35,
+      ease: "power2.out"
+    });
+
+    changeTL.to(collegeCardWidget, {
+      transformOrigin: "80% 0%",
+      rotation: 28,
+      duration: 0.45,
+      ease: "power1.inOut"
+    }, "-=0.3");
+
+    // 2. Unpin Right: Right pin springs up, card drops off completely falling with gravity and rotation
+    changeTL.to(pinR, {
+      y: -15,
+      rotation: 15,
+      duration: 0.25,
+      ease: "power2.out"
+    }, "-=0.15");
+
+    changeTL.to(collegeCardWidget, {
+      y: 280,
+      rotation: 40,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.in",
+      onComplete: () => {
+        // Swap image and text while card is out of view
+        collegeCardImg.src = nextImg.src;
+        collegeCardCaption.textContent = nextImg.caption;
+      }
+    }, "-=0.25");
+
+    // 3. Reset pins to normal clamping position
+    changeTL.to([pinL, pinR], {
+      y: 0,
+      rotation: 0,
+      duration: 0.1
+    });
+
+    // 4. Drop new card from above (y: -120), pivoting around center, and start swinging back and forth
+    changeTL.fromTo(collegeCardWidget, 
+      { y: -120, rotation: -24, opacity: 0, transformOrigin: "50% 0%" },
+      { y: 0, rotation: 12, opacity: 1, duration: 0.55, ease: "power2.out" }
+    );
+
+    // Let the pins bounce slightly when the card is "clipped"
+    changeTL.fromTo([pinL, pinR], 
+      { y: -8 }, 
+      { y: 0, duration: 0.4, ease: "bounce.out" }, 
+      "-=0.55"
+    );
+
+    // Swing Left
+    changeTL.to(collegeCardWidget, {
+      rotation: -8,
+      duration: 0.45,
+      ease: "power1.inOut"
+    });
+
+    // Swing Right
+    changeTL.to(collegeCardWidget, {
+      rotation: 4,
+      duration: 0.35,
+      ease: "power1.inOut"
+    });
+
+    // Swing Left
+    changeTL.to(collegeCardWidget, {
+      rotation: -2,
+      duration: 0.25,
+      ease: "power1.inOut"
+    });
+
+    // Settle to a slight random angle (simulating real resting hanging picture)
+    changeTL.to(collegeCardWidget, {
+      rotation: Math.random() * 4 - 2, // between -2 and 2 degrees
+      duration: 0.2,
+      ease: "power1.inOut"
+    });
+  }
+
+  // Infinite gentle bobbing and swaying for the entire hanger assembly to make it feel alive
+  gsap.to(".college-card-wrapper", {
+    y: "+=6",
+    rotation: 1,
+    duration: 3.5,
+    ease: "sine.inOut",
+    yoyo: true,
+    repeat: -1
+  });
+
+  // Auto transition every 6 seconds to give the viewer time to see the photo and the gorgeous physics swing
+  setInterval(changeCampusImage, 6000);
 });
