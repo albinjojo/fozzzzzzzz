@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJCE FOSS Community | Amal Jyothi Open Source Hub</title>
+  <meta name="description" content="Welcome to the student-run FOSS community of Amal Jyothi College of Engineering. We build cool web tools, host hackathons, install Linux, and share code.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Custom Cursor Follower -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Header & Navigation -->
+  <header class="navbar" id="navbar">
+    <a href="#" class="nav-logo" id="nav-logo">
+      <div class="nav-logo-icon">AJ</div>
+      <span>AJCE FOSS</span>
+    </a>
+    
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="active" id="nav-link-hero">Home</a></li>
+        <li><a href="#about" id="nav-link-about">About</a></li>
+        <li><a href="#events" id="nav-link-events">Events</a></li>
+        <li><a href="#timeline" id="nav-link-timeline">Journey</a></li>
+        <li><a href="#people" id="nav-link-people">People</a></li>
+        <li><a href="#stats" id="nav-link-stats">Stats</a></li>
+        <li><a href="#gallery" id="nav-link-gallery">Gallery</a></li>
+        <li><a href="#join" id="nav-link-join">Join Us</a></li>
+      </ul>
+    </nav>
+    
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <a href="#join" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem;" id="nav-cta-btn">
+        <span>Get Started</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag" id="hero-status-tag">
+          <span></span> Node server running locally on port 3000
+        </div>
+        <h1 class="hero-title" id="hero-main-title">
+          <span class="gradient-text">Amal Jyothi</span>
+          <span class="accent-gradient-text">FOSS Community</span>
+        </h1>
+        <p class="hero-desc" id="hero-description">
+          A community of student developers, designers, and tech enthusiasts at AJCE who love building cool things together, contributing to open source, and tinkering with new technology.
+        </p>
+        
+        <div class="hero-actions" id="hero-actions-container">
+          <a href="#join" class="btn btn-primary" id="hero-cta-join">
+            <span>Join Community</span>
+            <i class="fa-solid fa-arrow-right btn-arrow"></i>
+          </a>
+          <a href="#events" class="btn btn-secondary" id="hero-cta-events">
+            <span>Explore Events</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Interactive Widgets -->
+      <div class="hero-visuals" id="hero-widgets-container">
+        <!-- Live Terminal simulator -->
+        <div class="glass-card floating-widget widget-terminal" id="terminal-widget">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+            </div>
+            <div class="terminal-title">bash ~ ajce-foss-site</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <span class="terminal-input" id="typewriter-text"></span>
+            </div>
+            <div class="terminal-line" style="display:none;" id="terminal-out-1">
+              <span class="terminal-output">Building static files & loading components...</span>
+            </div>
+            <div class="terminal-line" style="display:none;" id="terminal-out-2">
+              <span class="terminal-success">Ready! Local development server initialized on dev-branch</span>
+            </div>
+            <div class="terminal-line" style="display:none;" id="terminal-out-3">
+              <span class="terminal-output">Listening on network: http://localhost:5173</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Community Stats Widget -->
+        <div class="glass-card floating-widget widget-stats" id="quick-stats-widget">
+          <div class="widget-stat-item">
+            <div class="widget-stat-number">500+</div>
+            <div class="widget-stat-label">Members</div>
+          </div>
+          <div class="widget-stat-item">
+            <div class="widget-stat-number">50+</div>
+            <div class="widget-stat-label">Projects</div>
+          </div>
+          <div class="widget-stat-item">
+            <div class="widget-stat-number">3000+</div>
+            <div class="widget-stat-label">Commits</div>
+          </div>
+        </div>
+
+        <!-- Git Contribution Grid widget -->
+        <div class="glass-card floating-widget widget-github" id="github-grid-widget">
+          <div class="github-header">
+            <span>github.com/ajce-foss</span>
+            <span>Active repositories list</span>
+          </div>
+          <div class="github-contrib-grid" id="github-contrib-grid">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <a href="#about" class="scroll-indicator" id="hero-scroll-indicator">
+      <span>SCROLL TO EXPLORE</span>
+      <div class="scroll-mouse">
+        <span class="scroll-wheel"></span>
+      </div>
+    </a>
+  </section>
+
+  <!-- 2. ABOUT SECTION -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header" id="about-section-header">
+        <div class="section-badge"><i class="fa-solid fa-graduation-cap"></i> Our Culture</div>
+        <h2 class="section-title gradient-text">What We Do</h2>
+        <p class="section-subtitle">We believe the best way to learn technology is by building things. No boring theory lectures - just hands-on sessions, peer collaboration, and open-source contribution.</p>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-features" id="about-cards-grid">
+          
+          <div class="glass-card about-card" id="about-card-1">
+            <div class="about-card-icon"><i class="fa-solid fa-users"></i></div>
+            <h3 class="about-card-title">Peer Learning</h3>
+            <p class="about-card-desc">No formal classrooms. We teach each other by sharing resources, pair programming, and doing code reviews together.</p>
+          </div>
+          
+          <div class="glass-card about-card" id="about-card-2">
+            <div class="about-card-icon"><i class="fa-solid fa-code-branch"></i></div>
+            <h3 class="about-card-title">Open Source</h3>
+            <p class="about-card-desc">We build tools, host Linux Install Fests, configure terminal dotfiles, and commit code directly to open repos.</p>
+          </div>
+          
+          <div class="glass-card about-card" id="about-card-3">
+            <div class="about-card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h3 class="about-card-title">Workshops</h3>
+            <p class="about-card-desc">Hands-on sessions on Git, docker containers, UI principles, web frameworks, and programming languages.</p>
+          </div>
+          
+          <div class="glass-card about-card" id="about-card-4">
+            <div class="about-card-icon"><i class="fa-solid fa-rocket"></i></div>
+            <h3 class="about-card-title">Hackathons</h3>
+            <p class="about-card-desc">Exciting overnight hacknights where we sit together in the labs, brainstorm, drink tea, and build prototypes.</p>
+          </div>
+          
+        </div>
+        
+        <!-- Code snippets simulator -->
+        <div class="about-terminal-container" id="about-terminal-panel">
+          <div class="floating-tech-container">
+            <div class="tech-badge tb-1"><i class="fa-brands fa-linux"></i> Linux config</div>
+            <div class="tech-badge tb-2"><i class="fa-brands fa-git-alt"></i> git push</div>
+            <div class="tech-badge tb-3"><i class="fa-brands fa-js"></i> node.js</div>
+          </div>
+          
+          <div class="glass-card about-terminal" id="about-code-terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+              </div>
+              <div class="terminal-title">foss-culture.js</div>
+            </div>
+            <div class="terminal-body about-terminal-lines">
+              <span><span class="terminal-comment">// Our simple team philosophy</span></span>
+              <span><span class="terminal-keyword">const</span> <span class="terminal-func">community</span> = {</span>
+              <span>&nbsp;&nbsp;name: <span class="terminal-string">"Amal Jyothi FOSS Community"</span>,</span>
+              <span>&nbsp;&nbsp;coreValues: [<span class="terminal-string">"Collaboration"</span>, <span class="terminal-string">"Freedom"</span>, <span class="terminal-string">"Sharing Code"</span>],</span>
+              <span>&nbsp;&nbsp;motto: <span class="terminal-string">"Build, break, learn, repeat."</span></span>
+              <span>};</span>
+              <span></span>
+              <span><span class="terminal-keyword">function</span> <span class="terminal-func">joinFOSS</span>(student) {</span>
+              <span>&nbsp;&nbsp;<span class="terminal-keyword">if</span> (student.lovesBuildingThings) {</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;student.skills += <span class="terminal-func">collaborate</span>(community);</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;student.network.grow();</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="terminal-string">"Welcome to the community!"</span>);</span>
+              <span>&nbsp;&nbsp;}</span>
+              <span>}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURED EVENTS SECTION -->
+  <section class="events" id="events">
+    <div class="container">
+      <div class="section-header" id="events-section-header">
+        <div class="section-badge"><i class="fa-solid fa-calendar-days"></i> What's Happening</div>
+        <h2 class="section-title gradient-text">Featured Events</h2>
+        <p class="section-subtitle">Check out our upcoming meetups and workshops. Everyone is welcome, no matter your skill level!</p>
+      </div>
+      
+      <div class="events-grid" id="events-card-grid">
+        <!-- Event 1 -->
+        <div class="glass-card event-card" id="event-card-1">
+          <div class="event-img-wrapper">
+            <div class="event-date-overlay">OCT 14, 2026</div>
+            <img class="event-img" src="./assets/images/git_github_event.png" alt="Git & GitHub Workshop" loading="lazy">
+          </div>
+          <div class="event-card-body">
+            <div class="event-tags">
+              <span class="event-tag">Version Control</span>
+              <span class="event-tag">Collaboration</span>
+            </div>
+            <h3 class="event-card-title">Git & GitHub Workshop</h3>
+            <p class="event-card-desc">Learn the basics of git commits, staging files, handling merge conflicts, and creating pull requests on GitHub.</p>
+            <div class="event-card-footer">
+              <span class="event-status active">Registrations Open</span>
+              <a href="#join" class="event-btn">
+                <span>Register</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="glass-card event-card" id="event-card-2">
+          <div class="event-img-wrapper">
+            <div class="event-date-overlay">OCT 30, 2026</div>
+            <img class="event-img" src="./assets/images/hacknight_event.png" alt="AJCE Hacknight" loading="lazy">
+          </div>
+          <div class="event-card-body">
+            <div class="event-tags">
+              <span class="event-tag">Hackathon</span>
+              <span class="event-tag">Overnight</span>
+            </div>
+            <h3 class="event-card-title">Hacknight 2026</h3>
+            <p class="event-card-desc">An intense overnight hackathon. Build mini-projects, pitch them to peers, and get feedback from mentors.</p>
+            <div class="event-card-footer">
+              <span class="event-status active">Coming Soon</span>
+              <a href="#join" class="event-btn">
+                <span>Notify Me</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="glass-card event-card" id="event-card-3">
+          <div class="event-img-wrapper">
+            <div class="event-date-overlay">NOV 12, 2026</div>
+            <img class="event-img" src="./assets/images/opensource_event.png" alt="Open Source Sprint" loading="lazy">
+          </div>
+          <div class="event-card-body">
+            <div class="event-tags">
+              <span class="event-tag">Open Source</span>
+              <span class="event-tag">Contribution</span>
+            </div>
+            <h3 class="event-card-title">Open Source Sprint</h3>
+            <p class="event-card-desc">A day dedicated to finding open bugs, writing documentation updates, and contributing to global repositories.</p>
+            <div class="event-card-footer">
+              <span class="event-status">Planned</span>
+              <a href="#join" class="event-btn">
+                <span>View Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="glass-card event-card" id="event-card-4">
+          <div class="event-img-wrapper">
+            <div class="event-date-overlay">DEC 02, 2026</div>
+            <img class="event-img" src="./assets/images/linux_event.png" alt="Linux Install Fest" loading="lazy">
+          </div>
+          <div class="event-card-body">
+            <div class="event-tags">
+              <span class="event-tag">Operating Systems</span>
+              <span class="event-tag">SysAdmin</span>
+            </div>
+            <h3 class="event-card-title">Linux Install Fest</h3>
+            <p class="event-card-desc">Bring your laptop and configure a dual-boot setup with Linux. Learn terminal command basics and shell scripts.</p>
+            <div class="event-card-footer">
+              <span class="event-status">Planned</span>
+              <a href="#join" class="event-btn">
+                <span>View Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 5 -->
+        <div class="glass-card event-card" id="event-card-5">
+          <div class="event-img-wrapper">
+            <div class="event-date-overlay">DEC 18, 2026</div>
+            <img class="event-img" src="./assets/images/uiux_event.png" alt="UI/UX Design Jam" loading="lazy">
+          </div>
+          <div class="event-card-body">
+            <div class="event-tags">
+              <span class="event-tag">UI/UX Design</span>
+              <span class="event-tag">Figma</span>
+            </div>
+            <h3 class="event-card-title">UI/UX Jam</h3>
+            <p class="event-card-desc">Figma prototyping sprint. Design elegant screen layouts, learn component structures, and user flow charts.</p>
+            <div class="event-card-footer">
+              <span class="event-status">Planned</span>
+              <a href="#join" class="event-btn">
+                <span>View Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. COMMUNITY JOURNEY / TIMELINE -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <div class="section-header" id="timeline-section-header">
+        <div class="section-badge"><i class="fa-solid fa-route"></i> Timeline & Milestones</div>
+        <h2 class="section-title gradient-text">Community Journey</h2>
+        <p class="section-subtitle">How we started, how we grew, and where we are heading as a group.</p>
+      </div>
+      
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <!-- Milestone 1 -->
+        <div class="timeline-item" id="timeline-item-1">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-date">JANUARY 2025</div>
+            <h3 class="timeline-card-title">Community Kickoff</h3>
+            <p class="timeline-card-desc">Formed by a small team of students who wanted to learn coding outside the textbook. Outlined goals: open code sharing, active peer workshops, and physical meetups.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="timeline-item" id="timeline-item-2">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-date">APRIL 2025</div>
+            <h3 class="timeline-card-title">First Linux Install Fest</h3>
+            <p class="timeline-card-desc">Gathered 60+ students in the labs to learn operating system boot sequences, install Linux, and play around with command utilities.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="timeline-item" id="timeline-item-3">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-date">OCTOBER 2025</div>
+            <h3 class="timeline-card-title">Hacknight v1.0</h3>
+            <p class="timeline-card-desc">Hosted an overnight coding hackathon with 100+ participants. Spent the night building projects, drinking tea, and code debugging.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="timeline-item" id="timeline-item-4">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-date">FEBRUARY 2026</div>
+            <h3 class="timeline-card-title">TinkerSpace Cooperation</h3>
+            <p class="timeline-card-desc">Partnered with TinkerHub's learning networks, syncing pathways to enable advanced topics like web development, systems, and design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. OUR PEOPLE SECTION -->
+  <section class="people" id="people">
+    <div class="container">
+      <div class="section-header" id="people-section-header">
+        <div class="section-badge"><i class="fa-solid fa-users"></i> Leads & Contributors</div>
+        <h2 class="section-title gradient-text">Meet the Team</h2>
+        <p class="section-subtitle">A group of students directing the activities, coordinating workshops, and maintaining community setups.</p>
+      </div>
+      
+      <div class="people-toggle-container">
+        <div class="people-toggle">
+          <button class="people-tab active" id="tab-core">Core Team</button>
+          <button class="people-tab" id="tab-mentors">Mentors</button>
+          <button class="people-tab" id="tab-contributors">Contributors</button>
+        </div>
+      </div>
+
+      <!-- Core Team Panel -->
+      <div class="people-grid" id="grid-core">
+        
+        <!-- Member 1 -->
+        <div class="glass-card member-card" id="member-card-1">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Albin Jojo</h3>
+          <div class="member-role">FOSS Lead / SysAdmin</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" class="member-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" class="member-social-link"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="glass-card member-card" id="member-card-2">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Riya Elsa</h3>
+          <div class="member-role">Co-Lead / Web Dev</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" class="member-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" class="member-social-link"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="glass-card member-card" id="member-card-3">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Abel Tom</h3>
+          <div class="member-role">Events / UI Designer</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" class="member-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" class="member-social-link"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="glass-card member-card" id="member-card-4">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Devik P.</h3>
+          <div class="member-role">Technical Lead / DevOps</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" class="member-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" class="member-social-link"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentors Panel -->
+      <div class="people-grid hidden" id="grid-mentors">
+        <!-- Mentor 1 -->
+        <div class="glass-card member-card">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Prof. Jerin Thomas</h3>
+          <div class="member-role">Faculty Lead</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" class="member-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Mentor 2 -->
+        <div class="glass-card member-card">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Arun Michael</h3>
+          <div class="member-role">Industry Mentor (Ex-RedHat)</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" class="member-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contributors Panel -->
+      <div class="people-grid hidden" id="grid-contributors">
+        <!-- Contributor 1 -->
+        <div class="glass-card member-card">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Gokul K.</h3>
+          <div class="member-role">Web Contributor</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <!-- Contributor 2 -->
+        <div class="glass-card member-card">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Anjali Rose</h3>
+          <div class="member-role">Design Contributor</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <!-- Contributor 3 -->
+        <div class="glass-card member-card">
+          <div class="member-avatar-wrapper">
+            <div class="member-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+            </div>
+          </div>
+          <h3 class="member-name">Nandu Krishnan</h3>
+          <div class="member-role">Docs Contributor</div>
+          <div class="member-socials">
+            <a href="https://github.com" class="member-social-link"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. PARTNERS SECTION -->
+  <section class="partners" id="partners">
+    <div class="container">
+      <div class="section-header" id="partners-section-header" style="margin-bottom: 40px;">
+        <h2 class="section-title gradient-text" style="font-size: 1.8rem;">Supported by Learning Networks</h2>
+      </div>
+      
+      <div class="partners-marquee">
+        <div class="marquee-track">
+          <!-- Item 1 -->
+          <div class="partner-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 12H3M12 3v18"/></svg>
+            <span>TinkerHub</span>
+          </div>
+          <!-- Item 2 -->
+          <div class="partner-logo">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub Education</span>
+          </div>
+          <!-- Item 3 -->
+          <div class="partner-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>FOSS United</span>
+          </div>
+          <!-- Item 4 -->
+          <div class="partner-logo">
+            <i class="fa-brands fa-google"></i>
+            <span>GDG Palai</span>
+          </div>
+          <!-- Item 5 -->
+          <div class="partner-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            <span>IEEE AJCE</span>
+          </div>
+          
+          <!-- Duplicate set for marquee loop -->
+          <div class="partner-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 12H3M12 3v18"/></svg>
+            <span>TinkerHub</span>
+          </div>
+          <div class="partner-logo">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub Education</span>
+          </div>
+          <div class="partner-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>FOSS United</span>
+          </div>
+          <div class="partner-logo">
+            <i class="fa-brands fa-google"></i>
+            <span>GDG Palai</span>
+          </div>
+          <div class="partner-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            <span>IEEE AJCE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. COMMUNITY STATS SECTION -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        
+        <div class="stat-item" id="stat-item-1">
+          <span class="stat-number" data-target="500">0</span>
+          <span class="stat-label">Active Members</span>
+        </div>
+
+        <div class="stat-item" id="stat-item-2">
+          <span class="stat-number" data-target="25">0</span>
+          <span class="stat-label">Events & Workshops</span>
+        </div>
+
+        <div class="stat-item" id="stat-item-3">
+          <span class="stat-number" data-target="60">0</span>
+          <span class="stat-label">Active Contributors</span>
+        </div>
+
+        <div class="stat-item" id="stat-item-4">
+          <span class="stat-number" data-target="30">0</span>
+          <span class="stat-label">Open Source Repos</span>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. GALLERY SECTION -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header" id="gallery-section-header">
+        <div class="section-badge"><i class="fa-solid fa-images"></i> Moments & Memories</div>
+        <h2 class="section-title gradient-text">Life at FOSS AJCE</h2>
+        <p class="section-subtitle">Visual highlights of hands-on workshops, night sprints, and team meetups.</p>
+      </div>
+      
+      <div class="gallery-grid" id="gallery-masonry-grid">
+        <!-- Item 1 -->
+        <div class="gallery-item glass-card" data-img="./assets/images/gallery_1.png" data-caption="FOSS Hackathon Sprint 2025" data-sub="Collaboration Room">
+          <img class="gallery-img" src="./assets/images/gallery_1.png" alt="Hackathon Sprint" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-caption">FOSS Hackathon Sprint 2025</h4>
+            <span class="gallery-sub">Collaboration Room</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item glass-card" data-img="./assets/images/gallery_2.png" data-caption="Linux Setup Workshop" data-sub="Main Auditorium">
+          <img class="gallery-img" src="./assets/images/gallery_2.png" alt="Linux Setup" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-caption">Linux Setup Workshop</h4>
+            <span class="gallery-sub">Main Auditorium</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item glass-card" data-img="./assets/images/gallery_3.png" data-caption="Cyber Hands-on Programming" data-sub="Hacking Lab">
+          <img class="gallery-img" src="./assets/images/gallery_3.png" alt="Hands-on Programming" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-caption">Cyber Hands-on Programming</h4>
+            <span class="gallery-sub">Hacking Lab</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item glass-card" data-img="./assets/images/gallery_4.png" data-caption="Motherboard IoT assembly" data-sub="Maker Lab">
+          <img class="gallery-img" src="./assets/images/gallery_4.png" alt="Motherboard IoT" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-caption">Motherboard IoT Assembly</h4>
+            <span class="gallery-sub">Maker Lab</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal container -->
+  <div class="lightbox" id="gallery-lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="Preview">
+      <h3 class="lightbox-caption" id="lightbox-caption">Preview Title</h3>
+    </div>
+  </div>
+
+  <!-- 9. JOIN COMMUNITY SECTION -->
+  <section class="join" id="join">
+    <div class="container join-grid">
+      <div class="join-info" id="join-info-panel">
+        <div class="section-badge"><i class="fa-solid fa-arrow-right-to-bracket"></i> Connect with Us</div>
+        <h2 class="section-title gradient-text" style="font-size: 3rem; margin-bottom: 20px;">Ready to start building?</h2>
+        <p class="join-desc">Join our Discord server to connect with senior developers, chat with peers, or register in our members database below.</p>
+        
+        <div class="join-links">
+          <a href="https://discord.gg" class="join-link-item" target="_blank">
+            <div class="join-link-icon"><i class="fa-brands fa-discord"></i></div>
+            <div>
+              <div class="join-link-title">Discord Server</div>
+              <div class="join-link-sub">Join chat threads, ask questions, coordinate teams.</div>
+            </div>
+          </a>
+          
+          <a href="https://github.com/ajce-foss" class="join-link-item" target="_blank">
+            <div class="join-link-icon"><i class="fa-brands fa-github"></i></div>
+            <div>
+              <div class="join-link-title">GitHub Organization</div>
+              <div class="join-link-sub">Browse repositories, contribute to campus software projects.</div>
+            </div>
+          </a>
+
+          <a href="https://instagram.com" class="join-link-item" target="_blank">
+            <div class="join-link-icon"><i class="fa-brands fa-instagram"></i></div>
+            <div>
+              <div class="join-link-title">Instagram Page</div>
+              <div class="join-link-sub">Follow for event notifications, photography, and updates.</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Interactive Registration Form -->
+      <div class="glass-card join-form-wrapper" id="join-form-container">
+        <h3 class="join-form-title gradient-text">Join FOSS AJCE</h3>
+        
+        <form id="foss-registry-form">
+          <div class="form-group">
+            <input type="text" class="form-input" id="form-name" placeholder=" " required autocomplete="off">
+            <label class="form-label" for="form-name">Name</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" class="form-input" id="form-email" placeholder=" " required autocomplete="off">
+            <label class="form-label" for="form-email">Email</label>
+          </div>
+          
+          <div class="form-group">
+            <div class="select-wrapper">
+              <select class="form-select" id="form-dept" required>
+                <option value="" disabled selected>Department</option>
+                <option value="CSE">Computer Science & Engineering</option>
+                <option value="IT">Information Technology</option>
+                <option value="ECE">Electronics & Communication</option>
+                <option value="EEE">Electrical & Electronics</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="CIVIL">Civil Engineering</option>
+                <option value="OTHER">Other</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-interests-wrapper">
+            <span class="form-interests-label">Fields of Interest</span>
+            <div class="interests-grid">
+              <label class="interest-checkbox-label">
+                <input type="checkbox" class="interest-checkbox" name="interest" value="web-dev"> Web Development
+              </label>
+              <label class="interest-checkbox-label">
+                <input type="checkbox" class="interest-checkbox" name="interest" value="linux-sys"> Linux & Systems
+              </label>
+              <label class="interest-checkbox-label">
+                <input type="checkbox" class="interest-checkbox" name="interest" value="uiux"> UI/UX Design
+              </label>
+              <label class="interest-checkbox-label">
+                <input type="checkbox" class="interest-checkbox" name="interest" value="cybersec"> Cybersecurity
+              </label>
+              <label class="interest-checkbox-label">
+                <input type="checkbox" class="interest-checkbox" name="interest" value="ai-ml"> AI & Machine Learning
+              </label>
+              <label class="interest-checkbox-label">
+                <input type="checkbox" class="interest-checkbox" name="interest" value="iot-embed"> IoT & Embedded
+              </label>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%;" id="form-submit-btn">
+            <span>Submit Registration</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+        
+        <!-- Live Terminal response message after submitting -->
+        <div class="form-terminal-output" id="form-terminal-output">
+          <!-- Content written dynamically via JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-info" id="footer-branding-col">
+        <a href="#" class="footer-logo">
+          <div class="nav-logo-icon">AJ</div>
+          <span>AJCE FOSS</span>
+        </a>
+        <p class="footer-quote">
+          “Built with passion by students of Amal Jyothi College of Engineering. Shared freely under the MIT License.”
+        </p>
+      </div>
+      
+      <div class="footer-links-col" id="footer-navigation-col">
+        <h4 class="footer-title">Directory</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">~/home</a></li>
+          <li><a href="#about">~/about</a></li>
+          <li><a href="#events">~/featured_events</a></li>
+          <li><a href="#timeline">~/milestones</a></li>
+          <li><a href="#people">~/maintainers</a></li>
+          <li><a href="#gallery">~/gallery</a></li>
+        </ul>
+      </div>
+      
+      <!-- Mini status widget -->
+      <div class="footer-links-col" id="footer-terminal-col">
+        <h4 class="footer-title">System Status</h4>
+        <div class="footer-terminal" id="footer-terminal-console">
+          <div class="footer-terminal-header">
+            <span class="footer-terminal-title">status-indicator</span>
+          </div>
+          <div class="footer-terminal-body">
+            <div>Uptime: 99.99%</div>
+            <div class="footer-terminal-status">
+              <span class="status-dot"></span> Community Active
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Amal Jyothi College of Engineering FOSS Community.</span>
+      <div class="footer-social-badges">
+        <a href="https://github.com/ajce-foss" class="footer-social-badge" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://discord.gg" class="footer-social-badge" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & Lenis CDN Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+  
+  <!-- Main Script file -->
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
