@@ -297,21 +297,11 @@ document.addEventListener("DOMContentLoaded", () => {
     y: 40,
     duration: 0.8,
     stagger: 0.12,
-    ease: "power3.out"
+    ease: "power3.out",
+    clearProps: "all"
   });
 
-  // About Section Terminal widget slide-in
-  gsap.from("#about-terminal-panel", {
-    scrollTrigger: {
-      trigger: "#about-terminal-panel",
-      start: "top 75%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    ease: "power3.out"
-  });
+
 
   // Featured Event Cards scroll reveal
   gsap.from("#events-card-grid .event-card", {
@@ -380,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power3.out"
   });
 
-  // --- 9. FOSS UNITED CARDS REVEAL ---
+  // --- 9. PARTNERSHIP CARDS REVEAL ---
   gsap.from(".foss-united-main-card", {
     scrollTrigger: {
       trigger: "#foss-united",
@@ -388,19 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleActions: "play none none none"
     },
     opacity: 0,
-    x: -30,
-    duration: 0.8,
-    ease: "power3.out"
-  });
-
-  gsap.from(".foss-united-detail-card", {
-    scrollTrigger: {
-      trigger: ".foss-united-details",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 25,
+    y: 35,
     duration: 0.8,
     stagger: 0.15,
     ease: "power3.out"

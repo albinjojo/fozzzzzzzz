@@ -9,7 +9,7 @@
     content="Welcome to the student-run FOSS community of Amal Jyothi College of Engineering. We build digital products, collaborate on open source projects, and learn together.">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="./assets/css/style.css?v=1.7">
+  <link rel="stylesheet" href="./assets/css/style.css?v=1.9">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -229,44 +229,7 @@
 
         </div>
 
-        <!-- Code snippets simulator / Capability map -->
-        <div class="about-terminal-container" id="about-terminal-panel">
-          <div class="floating-tech-container">
-            <div class="tech-badge tb-1"><i class="fa-brands fa-linux"></i> custom-dotfiles</div>
-            <div class="tech-badge tb-2"><i class="fa-brands fa-git-alt"></i> git push</div>
-            <div class="tech-badge tb-3"><i class="fa-brands fa-js"></i> next.js</div>
-          </div>
 
-          <!-- Ruled notebook styled box -->
-          <div class="about-terminal" id="about-code-terminal" style="padding-top: 36px; position: relative;">
-            <div class="absolute -top-3 left-6 w-16 h-5 tape-strip rotate-[10deg]"
-              style="background: rgba(255,229,150,0.85);"></div>
-            <div class="terminal-dots-wrapper" style="top: 10px;">
-              <span class="terminal-circle" style="background: var(--border-color);"></span>
-              <span class="terminal-circle" style="background: var(--border-color);"></span>
-              <span class="terminal-circle" style="background: var(--border-color);"></span>
-            </div>
-            <div class="terminal-body about-terminal-lines bg-ruled">
-              <span><span class="terminal-comment">// Defining community culture</span></span>
-              <span><span class="terminal-keyword">const</span> <span class="terminal-func">ajceFoss</span> = {</span>
-              <span>&nbsp;&nbsp;mission: <span class="terminal-string">"Empower student creators"</span>,</span>
-              <span>&nbsp;&nbsp;values: [<span class="terminal-string">"Free Software"</span>, <span
-                  class="terminal-string">"Peer Mentoring"</span>],</span>
-              <span>&nbsp;&nbsp;motto: <span class="terminal-string">"Build in public, share freely"</span></span>
-              <span>};</span>
-              <span></span>
-              <span><span class="terminal-keyword">function</span> <span class="terminal-func">learn</span>(student)
-                {</span>
-              <span>&nbsp;&nbsp;<span class="terminal-keyword">if</span> (student.lovesBuilding) {</span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;student.skills += <span
-                  class="terminal-func">collaborate</span>(ajceFoss);</span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="terminal-string">"Shipped another
-                  project!"</span>);</span>
-              <span>&nbsp;&nbsp;}</span>
-              <span>}</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -413,57 +376,43 @@
     <div class="container">
       <div class="section-header" id="foss-united-section-header">
         <div class="section-badge">04. Partnership</div>
-        <h2 class="section-title">Affiliated with <span class="serif-italic"
-            style="color: var(--accent-orange-dark);">FOSS United</span>.</h2>
-        <p class="section-subtitle">Promoting Free and Open Source Software (FOSS) on campus in collaboration with FOSS United.</p>
+        <h2 class="section-title">Affiliated <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">with</span>.</h2>
+        <p class="section-subtitle">Partnering with national and state-level organizations to grow a strong open-source footprint on campus.</p>
       </div>
 
       <div class="foss-united-grid">
-        <!-- Main Card -->
+        <!-- FOSS United Card -->
         <div class="tactile-card foss-united-main-card">
           <div class="foss-united-logo-wrapper">
-            <span class="foss-united-badge">FOUNDATION PARTNER</span>
+            <span class="foss-united-badge" style="background-color: var(--accent-yellow);">FOUNDATION PARTNER</span>
             <h3 class="foss-united-heading">FOSS United</h3>
           </div>
           <p class="foss-united-desc">
-            FOSS United is a non-profit foundation promoting the creation and usage of Free and Open Source Software in India.
-            As an active campus chapter, we build open tools, mentor students to participate in national hacks, and host regular meetups.
+            A non-profit foundation promoting Free & Open Source Software in India. As an active campus chapter, we build open-source tools, run local hackathons, and secure project grants.
           </p>
           <div class="foss-united-links">
-            <a href="https://fossunited.org" target="_blank" class="btn btn-secondary">
+            <a href="https://fossunited.org/c/amal-jyothi-college-of-engineering" target="_blank" class="btn btn-secondary" style="width: 100%;">
               <span>Visit FOSS United</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
         </div>
 
-        <!-- Detail Cards -->
-        <div class="foss-united-details">
-          <!-- Card 1 -->
-          <div class="tactile-card foss-united-detail-card" style="background-color: var(--bg-card-alt);">
-            <div class="detail-icon" style="background: var(--accent-green);"><i class="fa-solid fa-handshake-angle"></i></div>
-            <div class="detail-content">
-              <h4 class="detail-title">Grants & Funding</h4>
-              <p class="detail-desc">Get access to financial support and developer grants directly from FOSS United to build your open-source projects and ideas.</p>
-            </div>
+        <!-- ICFOSS Card -->
+        <div class="tactile-card foss-united-main-card">
+          <div class="foss-united-logo-wrapper">
+            <span class="foss-united-badge" style="background-color: var(--accent-blue);">GOVERNMENT CELL</span>
+            <h3 class="foss-united-heading">ICFOSS</h3>
           </div>
-
-          <!-- Card 2 -->
-          <div class="tactile-card foss-united-detail-card" style="background-color: var(--bg-card-alt);">
-            <div class="detail-icon" style="background: var(--accent-blue);"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="detail-content">
-              <h4 class="detail-title">Mentorship</h4>
-              <p class="detail-desc">Connect with seasoned kernel developers, open-source maintainers, and tech leaders in the FOSS United network.</p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="tactile-card foss-united-detail-card" style="background-color: var(--bg-card-alt);">
-            <div class="detail-icon" style="background: var(--accent-yellow);"><i class="fa-solid fa-calendar-check"></i></div>
-            <div class="detail-content">
-              <h4 class="detail-title">Meetups & Conferences</h4>
-              <p class="detail-desc">Represent the community at national events like IndiaFOSS, regional FOSS meetups, and local Hackdays hosted at Amal Jyothi.</p>
-            </div>
+          <p class="foss-united-desc">
+            An autonomous institution under the Government of Kerala. Our student cell coordinates government-linked open-source training programs, IoT labs, and hardware hackdays.
+          </p>
+          <div class="foss-united-links">
+            <a href="https://icfoss.in" target="_blank" class="btn btn-secondary" style="width: 100%;">
+              <span>Visit ICFOSS</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -475,8 +424,10 @@
     <div class="container">
       <div class="section-header" id="people-section-header">
         <div class="section-badge">05. Team</div>
-        <h2 class="section-title">FOSS United <span class="serif-italic" style="color: var(--accent-orange-dark);">AJCE</span></h2>
-        <p class="section-subtitle">Meet the organizers and core volunteers driving the open-source community at Amal Jyothi.</p>
+        <h2 class="section-title">FOSS United <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">AJCE</span></h2>
+        <p class="section-subtitle">Meet the organizers and core volunteers driving the open-source community at Amal
+          Jyothi.</p>
       </div>
 
       <div class="people-container-box">
@@ -938,7 +889,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 
   <!-- Main Script file -->
-  <script src="./assets/js/script.js?v=1.3"></script>
+  <script src="./assets/js/script.js?v=1.5"></script>
 </body>
 
 </html>

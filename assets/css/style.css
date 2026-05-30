@@ -28,8 +28,9 @@
   --font-mono: 'Fira Code', monospace;
   
   /* Transitions */
-  --transition-tactile: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-tactile: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* --- RESET & GLOBAL STYLES --- */
@@ -917,16 +918,15 @@ section {
 
 /* --- 2. ABOUT SECTION --- */
 .about-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 60px;
-  align-items: center;
+  display: block;
+  width: 100%;
 }
 
 .about-features {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  width: 100%;
 }
 
 .about-card {
@@ -1168,118 +1168,69 @@ section {
 
 .foss-united-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: stretch;
 }
 
 .foss-united-main-card {
-  padding: 40px;
+  padding: 24px;
   background-color: var(--bg-card);
-  border: 3px solid var(--border-color);
-  border-radius: 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--border-color);
+  box-shadow: 4px 4px 0 0 var(--border-color);
   transition: var(--transition-smooth);
 }
 
 .foss-united-main-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 0 var(--border-color);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0 var(--border-color);
 }
 
 .foss-united-logo-wrapper {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .foss-united-badge {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--accent-orange-dark);
   background-color: var(--accent-yellow);
   border: 1.5px solid var(--border-color);
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 3px 8px;
+  border-radius: 5px;
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .foss-united-heading {
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .foss-united-desc {
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 30px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .foss-united-links {
   margin-top: auto;
 }
 
-.foss-united-details {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: space-between;
-}
-
-.foss-united-detail-card {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 24px;
-  background-color: var(--bg-card-alt);
-  border: 2px solid var(--border-color);
-  border-radius: 16px;
-  box-shadow: 4px 4px 0 0 var(--border-color);
-  transition: var(--transition-tactile);
-}
-
-.foss-united-detail-card:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 0 var(--border-color);
-}
-
-.detail-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  border: 1.5px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 1.25rem;
-  color: var(--text-primary);
-}
-
-.detail-content {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.detail-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.detail-desc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
+.foss-united-main-card .btn {
+  padding: 10px 20px;
+  font-size: 0.75rem;
+  border-radius: 8px;
 }
 
 @media (max-width: 1024px) {
@@ -1291,11 +1242,7 @@ section {
 
 @media (max-width: 768px) {
   .foss-united-main-card {
-    padding: 30px 20px;
-  }
-  .foss-united-detail-card {
     padding: 20px;
-    gap: 15px;
   }
 }
 
@@ -2060,13 +2007,12 @@ section {
   .hero-dashboard {
     margin-top: 30px; /* Pull the Malayalam logo closer to the description/buttons */
   }
-  .about-grid, .join-grid, .footer-grid {
+  .join-grid, .footer-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .about-terminal-container {
-    max-width: 600px;
-    margin: 0 auto;
+  .about-features {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2076,6 +2022,28 @@ section {
   }
   .section-title {
     font-size: 2.2rem;
+  }
+  .about-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .about-card {
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+  .about-card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .about-card-title {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  .about-card-desc {
+    font-size: 0.75rem;
+    line-height: 1.45;
   }
   
   .hamburger {
