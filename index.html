@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJCE FOSS Community | Student Innovation Lab</title>
-  <meta name="description" content="Welcome to the student-run FOSS community of Amal Jyothi College of Engineering. We build digital products, collaborate on open source projects, and learn together.">
-  
+  <meta name="description"
+    content="Welcome to the student-run FOSS community of Amal Jyothi College of Engineering. We build digital products, collaborate on open source projects, and learn together.">
+
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-  
+  <link rel="stylesheet" href="./assets/css/style.css?v=1.4">
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
   <!-- Background Grain & Grid Overlays -->
@@ -32,7 +35,7 @@
       <span>FOSS AJCE</span>
       <span class="nav-logo-tag">Open Source</span>
     </a>
-    
+
     <nav>
       <ul class="nav-links" id="nav-links">
         <li><a href="#hero" class="active" id="nav-link-hero">Intro</a></li>
@@ -44,7 +47,7 @@
         <li><a href="#join" id="nav-link-join">Contact</a></li>
       </ul>
     </nav>
-    
+
     <div style="display: flex; align-items: center; gap: 15px;">
       <div class="nav-status">
         <span class="status-dot"></span>
@@ -60,34 +63,44 @@
 
   <!-- 1. HERO SECTION -->
   <section class="hero" id="hero">
-    <canvas id="hero-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></canvas>
+    <canvas id="hero-canvas"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></canvas>
     <div class="grid-overlay opacity-30"></div>
     <div class="container hero-grid">
       <div class="hero-content">
         <h1 class="hero-title" id="hero-main-title">
           <span>Spreading</span>
-          <span class="tech-bold-highlight" style="color: var(--accent-orange-dark); font-size: 1.05em; position: relative; display: inline-block;">
+          <span class="tech-bold-highlight"
+            style="color: #ffffff; font-size: 1.05em; position: relative; display: inline-block;">
             FOSS beyond
-            <svg style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 8px; color: rgba(232, 115, 37, 0.3);" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M3,7 Q50,2 97,7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
+            <svg
+              style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 8px; color: #ffffff; opacity: 0.85;"
+              viewBox="0 0 100 10" preserveAspectRatio="none">
+              <path d="M3,7 Q50,2 97,7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+              </path>
+            </svg>
           </span>
           <span>classrooms.</span>
         </h1>
-        
+
         <p class="hero-desc" id="hero-description">
-          We are the student open-source community at Amal Jyothi College of Engineering. We build digital products, host workshops, dual-boot Linux, and collaborate on real-world projects.
+          We are the student open-source community at Amal Jyothi College of Engineering. We build digital products,
+          host workshops, dual-boot Linux, and collaborate on real-world projects.
         </p>
-        
+
         <div class="hero-actions" id="hero-actions-container">
           <a href="#join" class="btn btn-primary" id="hero-cta-join">
             <span>Join Community</span>
-            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 13L13 3M13 3H6M13 3V10"></path></svg>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M3 13L13 3M13 3H6M13 3V10"></path>
+            </svg>
           </a>
           <a href="#events" class="btn btn-secondary" id="hero-cta-events">
             <span>Explore Events</span>
           </a>
         </div>
       </div>
-      
+
       <!-- Interactive Campus Card Widget (styled like tactile polaroid hanger) -->
       <div class="hero-visuals">
         <div class="college-card-wrapper">
@@ -100,15 +113,16 @@
 
           <!-- The hanging wire line -->
           <div class="hanger-wire"></div>
-          
+
           <!-- Hanging Pins -->
           <div class="hanger-pin hanger-pin-left" id="hanger-pin-l"></div>
           <div class="hanger-pin hanger-pin-right" id="hanger-pin-r"></div>
-          
+
           <!-- Card hanging from the wire -->
           <div class="hanger-card" id="college-card-widget">
             <div class="hanger-card-img-wrapper">
-              <img src="./assets/images/ajce_college_building.png" alt="Amal Jyothi Campus" class="hanger-card-img" id="college-card-img">
+              <img src="./assets/images/ajce_college_building.png" alt="Amal Jyothi Campus" class="hanger-card-img"
+                id="college-card-img">
             </div>
             <div class="hanger-card-caption" id="college-card-caption">Amal Jyothi Campus</div>
           </div>
@@ -116,64 +130,55 @@
       </div>
     </div>
 
-    <!-- Dev Dashboard Status Bar (placed in a horizontal row below columns) -->
+    <!-- Malayalam Brand Sticker -->
     <div class="hero-dashboard container" id="hero-widgets-container">
-      <!-- Live Terminal simulator (styled like Albin's folder-tab structure) -->
-      <div class="widget-terminal" id="terminal-widget" style="position: relative; background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color); padding: 20px;">
-        <div class="terminal-dots-wrapper">
-          <span class="terminal-circle"></span>
-          <span class="terminal-circle"></span>
-          <span class="terminal-circle"></span>
-        </div>
-        <div class="terminal-body" style="margin-top: 10px;">
-          <div class="terminal-line">
-            <span class="terminal-prompt">$</span>
-            <span class="terminal-input" id="typewriter-text"></span>
-          </div>
-          <div class="terminal-line" style="display:none;" id="terminal-out-1">
-            <span class="terminal-output">Resolving dependency tree... done.</span>
-          </div>
-          <div class="terminal-line" style="display:none;" id="terminal-out-2">
-            <span class="terminal-success">[info] AJCE FOSS environment ready</span>
-          </div>
-          <div class="terminal-line" style="display:none;" id="terminal-out-3">
-            <span class="terminal-output">Server running: http://localhost:5173/</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Live Community Stats Widget -->
-      <div class="widget-stats" id="quick-stats-widget" style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color); padding: 20px;">
-        <div class="widget-stat-item">
-          <div class="widget-stat-number">500+</div>
-          <div class="widget-stat-label">Members</div>
-        </div>
-        <div class="widget-stat-item">
-          <div class="widget-stat-number">50+</div>
-          <div class="widget-stat-label">Projects</div>
-        </div>
-        <div class="widget-stat-item">
-          <div class="widget-stat-number">30+</div>
-          <div class="widget-stat-label">Workshops</div>
-        </div>
-      </div>
-
-      <!-- Git Contribution Grid widget -->
-      <div class="widget-github" id="github-grid-widget" style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color); padding: 20px;">
-        <div class="github-header">
-          <span>github.com/ajce-foss</span>
-          <span>268 commits this semester</span>
-        </div>
-        <div class="github-contrib-grid" id="github-contrib-grid">
-          <!-- Dynamically populated via JS -->
-        </div>
+      <!-- Malayalam Brand Calligraphy Sticker -->
+      <div class="malayalam-sticker-wrapper" id="malayalam-sticker-widget" style="max-width: 520px; width: 100%;">
+        <img src="./assets/images/foss_ajce_malayalam.png" alt="ഫോസ് എ ജെ സി ഇ" class="malayalam-sticker"
+          style="width: 100%; height: auto; display: block;">
       </div>
     </div>
-    
+
     <a href="#about" class="scroll-indicator" id="hero-scroll-indicator">
       <span>EXPLORE MISSION</span>
       <i class="fa-solid fa-arrow-down scroll-arrow-down" style="font-size: 0.9rem;"></i>
     </a>
+
+    <!-- Tactile Torn Paper Section Divider -->
+    <div class="torn-divider">
+      <!-- Filter Definition -->
+      <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+        <defs>
+          <filter id="paper-tear">
+            <!-- Generate high-quality fractal noise for paper tear fibers -->
+            <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" result="noise" />
+            <!-- Distort the vector shapes using the noise -->
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+
+      <!-- 1. Soft Drop Shadow (casts downward/upward on the sky background) -->
+      <svg viewBox="0 0 1000 60" preserveAspectRatio="none" class="torn-svg torn-shadow">
+        <path
+          d="M0,15 L18,13 L35,18 L55,12 L72,21 L90,15 L110,19 L130,11 L148,20 L168,14 L188,23 L208,16 L228,19 L248,12 L268,21 L288,15 L308,18 L328,11 L348,20 L368,14 L388,23 L408,16 L428,19 L448,12 L468,21 L488,15 L508,18 L528,11 L548,20 L568,14 L588,23 L608,16 L628,19 L648,12 L668,21 L688,15 L708,18 L728,11 L748,20 L768,14 L788,23 L808,16 L828,19 L848,12 L868,21 L888,15 L908,18 L928,11 L948,20 L968,14 L988,23 L1000,15 L1000,60 L0,60 Z"
+          fill="rgba(17, 17, 17, 0.15)" filter="url(#paper-tear)"></path>
+      </svg>
+
+      <!-- 2. Exposed Paper Fibers (bright white boundary simulating torn core) -->
+      <svg viewBox="0 0 1000 60" preserveAspectRatio="none" class="torn-svg torn-fibers">
+        <path
+          d="M0,15 L18,13 L35,18 L55,12 L72,21 L90,15 L110,19 L130,11 L148,20 L168,14 L188,23 L208,16 L228,19 L248,12 L268,21 L288,15 L308,18 L328,11 L348,20 L368,14 L388,23 L408,16 L428,19 L448,12 L468,21 L488,15 L508,18 L528,11 L548,20 L568,14 L588,23 L608,16 L628,19 L648,12 L668,21 L688,15 L708,18 L728,11 L748,20 L768,14 L788,23 L808,16 L828,19 L848,12 L868,21 L888,15 L908,18 L928,11 L948,20 L968,14 L988,23 L1000,15 L1000,60 L0,60 Z"
+          fill="#ffffff" filter="url(#paper-tear)"></path>
+      </svg>
+
+      <!-- 3. Main Paper Face (matches the warm cream base of the next section) -->
+      <svg viewBox="0 0 1000 60" preserveAspectRatio="none" class="torn-svg torn-main">
+        <path
+          d="M0,15 L18,13 L35,18 L55,12 L72,21 L90,15 L110,19 L130,11 L148,20 L168,14 L188,23 L208,16 L228,19 L248,12 L268,21 L288,15 L308,18 L328,11 L348,20 L368,14 L388,23 L408,16 L428,19 L448,12 L468,21 L488,15 L508,18 L528,11 L548,20 L568,14 L588,23 L608,16 L628,19 L648,12 L668,21 L688,15 L708,18 L728,11 L748,20 L768,14 L788,23 L808,16 L828,19 L848,12 L868,21 L888,15 L908,18 L928,11 L948,20 L968,14 L988,23 L1000,15 L1000,60 L0,60 Z"
+          fill="var(--bg-base)" filter="url(#paper-tear)"></path>
+      </svg>
+    </div>
   </section>
 
   <!-- 2. ABOUT SECTION -->
@@ -181,43 +186,49 @@
     <div class="container">
       <div class="section-header" id="about-section-header">
         <div class="section-badge">02. About</div>
-        <h2 class="section-title">We build the <span class="serif-italic" style="color: var(--accent-orange-dark);">platforms</span> that empower students.</h2>
-        <p class="section-subtitle">AJCE FOSS is a student collective advocating for software freedom, peer-to-peer collaboration, and build-centric learning.</p>
+        <h2 class="section-title">We build the <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">platforms</span> that empower students.</h2>
+        <p class="section-subtitle">AJCE FOSS is a student collective advocating for software freedom, peer-to-peer
+          collaboration, and build-centric learning.</p>
       </div>
-      
+
       <div class="about-grid">
         <div class="about-features" id="about-cards-grid">
-          
+
           <div class="tactile-card about-card" id="about-card-1">
             <div class="tape-strip"></div>
             <div class="about-card-icon"><i class="fa-solid fa-people-carry-arrows"></i></div>
             <h3 class="about-card-title">Peer Learning</h3>
-            <p class="about-card-desc">We learn from each other. No rigid syllabus or test scores—just code reviews, chat threads, and collaborative hacking sessions.</p>
+            <p class="about-card-desc">We learn from each other. No rigid syllabus or test scores—just code reviews,
+              chat threads, and collaborative hacking sessions.</p>
           </div>
-          
+
           <div class="tactile-card about-card" id="about-card-2">
             <div class="tape-strip right"></div>
             <div class="about-card-icon"><i class="fa-solid fa-code"></i></div>
             <h3 class="about-card-title">Open Source</h3>
-            <p class="about-card-desc">We build tools, host Linux install festivals, compile custom packages, and push directly to open global repos.</p>
+            <p class="about-card-desc">We build tools, host Linux install festivals, compile custom packages, and push
+              directly to open global repos.</p>
           </div>
-          
+
           <div class="tactile-card about-card" id="about-card-3">
             <div class="tape-strip"></div>
             <div class="about-card-icon"><i class="fa-solid fa-compass"></i></div>
             <h3 class="about-card-title">Workshops</h3>
-            <p class="about-card-desc">Hands-on crash courses covering everything from basic command utilities to advanced systems programming, UI, and docker containers.</p>
+            <p class="about-card-desc">Hands-on crash courses covering everything from basic command utilities to
+              advanced systems programming, UI, and docker containers.</p>
           </div>
-          
+
           <div class="tactile-card about-card" id="about-card-4">
             <div class="tape-strip right"></div>
             <div class="about-card-icon"><i class="fa-solid fa-pizza-slice"></i></div>
             <h3 class="about-card-title">Hackathons</h3>
-            <p class="about-card-desc">Overnight sprints where student teams brainstorm, write scripts, share pizza, and demo real-working software.</p>
+            <p class="about-card-desc">Overnight sprints where student teams brainstorm, write scripts, share pizza, and
+              demo real-working software.</p>
           </div>
-          
+
         </div>
-        
+
         <!-- Code snippets simulator / Capability map -->
         <div class="about-terminal-container" id="about-terminal-panel">
           <div class="floating-tech-container">
@@ -225,10 +236,11 @@
             <div class="tech-badge tb-2"><i class="fa-brands fa-git-alt"></i> git push</div>
             <div class="tech-badge tb-3"><i class="fa-brands fa-js"></i> next.js</div>
           </div>
-          
+
           <!-- Ruled notebook styled box -->
           <div class="about-terminal" id="about-code-terminal" style="padding-top: 36px; position: relative;">
-            <div class="absolute -top-3 left-6 w-16 h-5 tape-strip rotate-[10deg]" style="background: rgba(255,229,150,0.85);"></div>
+            <div class="absolute -top-3 left-6 w-16 h-5 tape-strip rotate-[10deg]"
+              style="background: rgba(255,229,150,0.85);"></div>
             <div class="terminal-dots-wrapper" style="top: 10px;">
               <span class="terminal-circle" style="background: var(--border-color);"></span>
               <span class="terminal-circle" style="background: var(--border-color);"></span>
@@ -238,14 +250,18 @@
               <span><span class="terminal-comment">// Defining community culture</span></span>
               <span><span class="terminal-keyword">const</span> <span class="terminal-func">ajceFoss</span> = {</span>
               <span>&nbsp;&nbsp;mission: <span class="terminal-string">"Empower student creators"</span>,</span>
-              <span>&nbsp;&nbsp;values: [<span class="terminal-string">"Free Software"</span>, <span class="terminal-string">"Peer Mentoring"</span>],</span>
+              <span>&nbsp;&nbsp;values: [<span class="terminal-string">"Free Software"</span>, <span
+                  class="terminal-string">"Peer Mentoring"</span>],</span>
               <span>&nbsp;&nbsp;motto: <span class="terminal-string">"Build in public, share freely"</span></span>
               <span>};</span>
               <span></span>
-              <span><span class="terminal-keyword">function</span> <span class="terminal-func">learn</span>(student) {</span>
+              <span><span class="terminal-keyword">function</span> <span class="terminal-func">learn</span>(student)
+                {</span>
               <span>&nbsp;&nbsp;<span class="terminal-keyword">if</span> (student.lovesBuilding) {</span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;student.skills += <span class="terminal-func">collaborate</span>(ajceFoss);</span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="terminal-string">"Shipped another project!"</span>);</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;student.skills += <span
+                  class="terminal-func">collaborate</span>(ajceFoss);</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="terminal-string">"Shipped another
+                  project!"</span>);</span>
               <span>&nbsp;&nbsp;}</span>
               <span>}</span>
             </div>
@@ -260,16 +276,19 @@
     <div class="container">
       <div class="section-header" id="events-section-header">
         <div class="section-badge">03. Selected Events</div>
-        <h2 class="section-title">Upcoming <span class="serif-italic" style="color: var(--accent-orange-dark);">Workshops</span> &amp; Sprints</h2>
-        <p class="section-subtitle">Register and jump into our next coding sprints. Open to all students, regardless of branch or year.</p>
+        <h2 class="section-title">Upcoming <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">Workshops</span> &amp; Sprints</h2>
+        <p class="section-subtitle">Register and jump into our next coding sprints. Open to all students, regardless of
+          branch or year.</p>
       </div>
-      
+
       <div class="events-grid" id="events-card-grid">
         <!-- Event 1 -->
         <div class="tactile-card event-card" id="event-card-1">
           <div class="event-img-wrapper">
             <div class="event-date-overlay">OCT 14, 2026</div>
-            <img class="event-img" src="./assets/images/git_github_event.png" alt="Git & GitHub Workshop" loading="lazy">
+            <img class="event-img" src="./assets/images/git_github_event.png" alt="Git & GitHub Workshop"
+              loading="lazy">
           </div>
           <div class="event-card-body">
             <div class="event-tags">
@@ -277,7 +296,8 @@
               <span class="event-tag">Collaboration</span>
             </div>
             <h3 class="event-card-title">Git & GitHub Workshop</h3>
-            <p class="event-card-desc">Master git repositories. Learn to create branches, staging edits, resolve pull requests, and contribute upstream.</p>
+            <p class="event-card-desc">Master git repositories. Learn to create branches, staging edits, resolve pull
+              requests, and contribute upstream.</p>
             <div class="event-card-footer">
               <span class="event-status active">Registrations Open</span>
               <a href="#join" class="event-btn">
@@ -300,7 +320,8 @@
               <span class="event-tag">Overnight</span>
             </div>
             <h3 class="event-card-title">Hacknight 2026</h3>
-            <p class="event-card-desc">An intense overnight sprint. Build hardware or web projects, collaborate with peers, and showcase working prototypes.</p>
+            <p class="event-card-desc">An intense overnight sprint. Build hardware or web projects, collaborate with
+              peers, and showcase working prototypes.</p>
             <div class="event-card-footer">
               <span class="event-status active">Coming Soon</span>
               <a href="#join" class="event-btn">
@@ -323,7 +344,8 @@
               <span class="event-tag">Sprints</span>
             </div>
             <h3 class="event-card-title">Open Source Sprint</h3>
-            <p class="event-card-desc">Get guided help in finding open bug tracker entries, writing docs updates, and submitting code requests to global repositories.</p>
+            <p class="event-card-desc">Get guided help in finding open bug tracker entries, writing docs updates, and
+              submitting code requests to global repositories.</p>
             <div class="event-card-footer">
               <span class="event-status">Planned</span>
               <a href="#join" class="event-btn">
@@ -346,7 +368,8 @@
               <span class="event-tag">Linux</span>
             </div>
             <h3 class="event-card-title">Linux Install Fest</h3>
-            <p class="event-card-desc">Ditch proprietary OS. Setup Arch, Fedora, or Ubuntu dual boot configurations and customize terminal environments.</p>
+            <p class="event-card-desc">Ditch proprietary OS. Setup Arch, Fedora, or Ubuntu dual boot configurations and
+              customize terminal environments.</p>
             <div class="event-card-footer">
               <span class="event-status">Planned</span>
               <a href="#join" class="event-btn">
@@ -369,7 +392,8 @@
               <span class="event-tag">Figma</span>
             </div>
             <h3 class="event-card-title">UI/UX Jam</h3>
-            <p class="event-card-desc">Brainstorm visual layouts, grid rules, typography details, and build tactile responsive prototypes in Figma.</p>
+            <p class="event-card-desc">Brainstorm visual layouts, grid rules, typography details, and build tactile
+              responsive prototypes in Figma.</p>
             <div class="event-card-footer">
               <span class="event-status">Planned</span>
               <a href="#join" class="event-btn">
@@ -389,20 +413,22 @@
     <div class="container">
       <div class="section-header" id="timeline-section-header">
         <div class="section-badge">04. Milestones</div>
-        <h2 class="section-title">Where we have <span class="serif-italic" style="color: var(--accent-orange-dark);">shipped</span>.</h2>
+        <h2 class="section-title">Where we have <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">shipped</span>.</h2>
         <p class="section-subtitle">A simple timeline tracking the evolution of the FOSS community at Amal Jyothi.</p>
       </div>
-      
+
       <div class="timeline-container">
         <div class="timeline-line"></div>
-        
+
         <!-- Milestone 1 -->
         <div class="timeline-item" id="timeline-item-1">
           <div class="timeline-node"></div>
           <div class="tactile-card timeline-card">
             <div class="timeline-date">JANUARY 2025</div>
             <h3 class="timeline-card-title">Community Kickoff</h3>
-            <p class="timeline-card-desc">Launched by a group of systems and web engineering students. Established our flat hierarchy culture and peer mentorship path.</p>
+            <p class="timeline-card-desc">Launched by a group of systems and web engineering students. Established our
+              flat hierarchy culture and peer mentorship path.</p>
           </div>
         </div>
 
@@ -412,7 +438,8 @@
           <div class="tactile-card timeline-card">
             <div class="timeline-date">APRIL 2025</div>
             <h3 class="timeline-card-title">First Linux Install Fest</h3>
-            <p class="timeline-card-desc">Instructed over 60 students on disk partitions, custom boot managers, and configuring dotfile setups in the computer science labs.</p>
+            <p class="timeline-card-desc">Instructed over 60 students on disk partitions, custom boot managers, and
+              configuring dotfile setups in the computer science labs.</p>
           </div>
         </div>
 
@@ -422,7 +449,8 @@
           <div class="tactile-card timeline-card">
             <div class="timeline-date">OCTOBER 2025</div>
             <h3 class="tactile-card-title">Hacknight v1.0</h3>
-            <p class="timeline-card-desc">Our inaugural 24-hour overnight code sprint. Generated 15 prototypes built completely by student teams.</p>
+            <p class="timeline-card-desc">Our inaugural 24-hour overnight code sprint. Generated 15 prototypes built
+              completely by student teams.</p>
           </div>
         </div>
 
@@ -432,7 +460,8 @@
           <div class="tactile-card timeline-card">
             <div class="timeline-date">FEBRUARY 2026</div>
             <h3 class="timeline-card-title">TinkerSpace Cooperation</h3>
-            <p class="timeline-card-desc">Merged networks with TinkerHub to run unified, hands-on engineering programs across domains like web dev, embedded, and product design.</p>
+            <p class="timeline-card-desc">Merged networks with TinkerHub to run unified, hands-on engineering programs
+              across domains like web dev, embedded, and product design.</p>
           </div>
         </div>
       </div>
@@ -444,10 +473,12 @@
     <div class="container">
       <div class="section-header" id="people-section-header">
         <div class="section-badge">05. People</div>
-        <h2 class="section-title">The <span class="serif-italic" style="color: var(--accent-orange-dark);">minds</span> behind the community.</h2>
-        <p class="section-subtitle">Students, advisors, and contributors coordinating events and building our campus open code repositories.</p>
+        <h2 class="section-title">The <span class="serif-italic" style="color: var(--accent-orange-dark);">minds</span>
+          behind the community.</h2>
+        <p class="section-subtitle">Students, advisors, and contributors coordinating events and building our campus
+          open code repositories.</p>
       </div>
-      
+
       <!-- Portfolio-style Folder Tab Selectors -->
       <div class="people-toggle-container">
         <button class="people-tab active" id="tab-core">01. Core Team</button>
@@ -462,14 +493,18 @@
           <div class="member-card" id="member-card-1">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Albin Jojo</h3>
             <div class="member-role">FOSS Lead / AI Engineer</div>
             <div class="member-socials">
-              <a href="https://github.com/albinjojo" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com/in/albin-jojo/" class="member-social-link" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com/albinjojo" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com/in/albin-jojo/" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
 
@@ -477,14 +512,18 @@
           <div class="member-card" id="member-card-2">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Riya Elsa</h3>
             <div class="member-role">Co-Lead / Web Architect</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
 
@@ -492,14 +531,18 @@
           <div class="member-card" id="member-card-3">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Abel Tom</h3>
             <div class="member-role">Events / UI Designer</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
 
@@ -507,14 +550,18 @@
           <div class="member-card" id="member-card-4">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Devik P.</h3>
             <div class="member-role">Systems / DevOps</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
@@ -524,28 +571,36 @@
           <div class="member-card">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Prof. Jerin Thomas</h3>
             <div class="member-role">Faculty Representative</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
 
           <div class="member-card">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Arun Michael</h3>
             <div class="member-role">Technical Mentor (Ex-RedHat)</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
@@ -555,39 +610,48 @@
           <div class="member-card">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Gokul K.</h3>
             <div class="member-role">Web Developer</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
             </div>
           </div>
 
           <div class="member-card">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Anjali Rose</h3>
             <div class="member-role">Graphics & Media</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
             </div>
           </div>
 
           <div class="member-card">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                </svg>
               </div>
             </div>
             <h3 class="member-name">Nandu Krishnan</h3>
             <div class="member-role">Docs Maintainer</div>
             <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-github"></i></a>
             </div>
           </div>
         </div>
@@ -599,14 +663,18 @@
   <section class="partners" id="partners">
     <div class="container">
       <div class="section-header" id="partners-section-header" style="margin-bottom: 40px;">
-        <h2 class="section-title">Partnered with <span class="serif-italic" style="color: var(--accent-orange-dark);">networks</span>.</h2>
+        <h2 class="section-title">Partnered with <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">networks</span>.</h2>
       </div>
-      
+
       <div class="partners-marquee">
         <div class="marquee-track">
           <!-- Item 1 -->
           <div class="partner-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 12H3M12 3v18"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M21 12H3M12 3v18" />
+            </svg>
             <span>TinkerHub</span>
           </div>
           <!-- Item 2 -->
@@ -616,7 +684,9 @@
           </div>
           <!-- Item 3 -->
           <div class="partner-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
             <span>FOSS United</span>
           </div>
           <!-- Item 4 -->
@@ -626,13 +696,19 @@
           </div>
           <!-- Item 5 -->
           <div class="partner-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 12h8M12 8v8" />
+            </svg>
             <span>IEEE AJCE</span>
           </div>
-          
+
           <!-- Duplicate set for marquee loop -->
           <div class="partner-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 12H3M12 3v18"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M21 12H3M12 3v18" />
+            </svg>
             <span>TinkerHub</span>
           </div>
           <div class="partner-logo">
@@ -640,7 +716,9 @@
             <span>GitHub Education</span>
           </div>
           <div class="partner-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
             <span>FOSS United</span>
           </div>
           <div class="partner-logo">
@@ -648,7 +726,10 @@
             <span>GDG Palai</span>
           </div>
           <div class="partner-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 12h8M12 8v8" />
+            </svg>
             <span>IEEE AJCE</span>
           </div>
         </div>
@@ -660,22 +741,26 @@
   <section class="stats" id="stats">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-item" id="stat-item-1" style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
+        <div class="stat-item" id="stat-item-1"
+          style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
           <span class="stat-number" data-target="500">0</span>
           <span class="stat-label">Active Members</span>
         </div>
 
-        <div class="stat-item" id="stat-item-2" style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
+        <div class="stat-item" id="stat-item-2"
+          style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
           <span class="stat-number" data-target="25">0</span>
           <span class="stat-label">Workshops & Events</span>
         </div>
 
-        <div class="stat-item" id="stat-item-3" style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
+        <div class="stat-item" id="stat-item-3"
+          style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
           <span class="stat-number" data-target="60">0</span>
           <span class="stat-label">Contributors</span>
         </div>
 
-        <div class="stat-item" id="stat-item-4" style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
+        <div class="stat-item" id="stat-item-4"
+          style="background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 14px; box-shadow: 4px 4px 0 0 var(--border-color);">
           <span class="stat-number" data-target="30">0</span>
           <span class="stat-label">Git Repositories</span>
         </div>
@@ -688,13 +773,15 @@
     <div class="container">
       <div class="section-header" id="gallery-section-header">
         <div class="section-badge">08. Gallery</div>
-        <h2 class="section-title">Moments &amp; <span class="serif-italic" style="color: var(--accent-orange-dark);">Memories</span></h2>
+        <h2 class="section-title">Moments &amp; <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">Memories</span></h2>
         <p class="section-subtitle">Visual snapshots from our workshops, bootcamps, and hacknights.</p>
       </div>
-      
+
       <div class="gallery-grid" id="gallery-masonry-grid">
         <!-- Item 1 -->
-        <div class="gallery-item" data-img="./assets/images/gallery_1.png" data-caption="FOSS Hackathon Sprint 2025" data-sub="Collaboration Room">
+        <div class="gallery-item" data-img="./assets/images/gallery_1.png" data-caption="FOSS Hackathon Sprint 2025"
+          data-sub="Collaboration Room">
           <img class="gallery-img" src="./assets/images/gallery_1.png" alt="Hackathon Sprint" loading="lazy">
           <div class="gallery-overlay">
             <h4 class="gallery-caption">FOSS Hackathon Sprint 2025</h4>
@@ -703,7 +790,8 @@
         </div>
 
         <!-- Item 2 -->
-        <div class="gallery-item" data-img="./assets/images/gallery_2.png" data-caption="Linux Setup Workshop" data-sub="CS Labs">
+        <div class="gallery-item" data-img="./assets/images/gallery_2.png" data-caption="Linux Setup Workshop"
+          data-sub="CS Labs">
           <img class="gallery-img" src="./assets/images/gallery_2.png" alt="Linux Setup" loading="lazy">
           <div class="gallery-overlay">
             <h4 class="gallery-caption">Linux Setup Workshop</h4>
@@ -712,7 +800,8 @@
         </div>
 
         <!-- Item 3 -->
-        <div class="gallery-item" data-img="./assets/images/gallery_3.png" data-caption="Cyber Hands-on Programming" data-sub="Development Lab">
+        <div class="gallery-item" data-img="./assets/images/gallery_3.png" data-caption="Cyber Hands-on Programming"
+          data-sub="Development Lab">
           <img class="gallery-img" src="./assets/images/gallery_3.png" alt="Hands-on Programming" loading="lazy">
           <div class="gallery-overlay">
             <h4 class="gallery-caption">Cyber Programming Meet</h4>
@@ -721,7 +810,8 @@
         </div>
 
         <!-- Item 4 -->
-        <div class="gallery-item" data-img="./assets/images/gallery_4.png" data-caption="Motherboard IoT assembly" data-sub="Maker Space">
+        <div class="gallery-item" data-img="./assets/images/gallery_4.png" data-caption="Motherboard IoT assembly"
+          data-sub="Maker Space">
           <img class="gallery-img" src="./assets/images/gallery_4.png" alt="Motherboard IoT" loading="lazy">
           <div class="gallery-overlay">
             <h4 class="gallery-caption">IoT Motherboard Build</h4>
@@ -746,9 +836,11 @@
     <div class="container join-grid">
       <div class="join-info" id="join-info-panel">
         <div class="section-badge">09. Contact</div>
-        <h2 class="section-title" style="margin-bottom: 20px;">Ready to start <span class="serif-italic" style="color: var(--accent-orange-dark);">hacking</span>?</h2>
-        <p class="join-desc">Join our Discord server to connect with senior developers, ask tech questions, or register in our members database below.</p>
-        
+        <h2 class="section-title" style="margin-bottom: 20px;">Ready to start <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">hacking</span>?</h2>
+        <p class="join-desc">Join our Discord server to connect with senior developers, ask tech questions, or register
+          in our members database below.</p>
+
         <div class="join-links">
           <a href="https://discord.gg" class="join-link-item" target="_blank">
             <div class="join-link-icon"><i class="fa-brands fa-discord"></i></div>
@@ -757,7 +849,7 @@
               <div class="join-link-sub">Join chat threads, coordinate hackathon teams.</div>
             </div>
           </a>
-          
+
           <a href="https://github.com/ajce-foss" class="join-link-item" target="_blank">
             <div class="join-link-icon"><i class="fa-brands fa-github"></i></div>
             <div>
@@ -775,22 +867,23 @@
           </a>
         </div>
       </div>
-      
+
       <!-- Interactive Registration Form -->
-      <div class="tactile-card join-form-wrapper" id="join-form-container" style="background-color: var(--bg-card-alt);">
+      <div class="tactile-card join-form-wrapper" id="join-form-container"
+        style="background-color: var(--bg-card-alt);">
         <h3 class="join-form-title">Join AJCE FOSS</h3>
-        
+
         <form id="foss-registry-form">
           <div class="form-group">
             <input type="text" class="form-input" id="form-name" placeholder=" " required autocomplete="off">
             <label class="form-label" for="form-name">Name</label>
           </div>
-          
+
           <div class="form-group">
             <input type="email" class="form-input" id="form-email" placeholder=" " required autocomplete="off">
             <label class="form-label" for="form-email">Email Address</label>
           </div>
-          
+
           <div class="form-group">
             <div class="select-wrapper">
               <select class="form-select" id="form-dept" required>
@@ -805,7 +898,7 @@
               </select>
             </div>
           </div>
-          
+
           <div class="form-interests-wrapper">
             <span class="form-interests-label">Fields of Interest</span>
             <div class="interests-grid">
@@ -829,13 +922,13 @@
               </label>
             </div>
           </div>
-          
+
           <button type="submit" class="btn btn-primary" style="width: 100%;" id="form-submit-btn">
             <span>Submit Registration</span>
             <i class="fa-solid fa-paper-plane"></i>
           </button>
         </form>
-        
+
         <!-- Live Terminal response message after submitting -->
         <div class="form-terminal-output" id="form-terminal-output">
           <!-- Content written dynamically via JavaScript -->
@@ -853,10 +946,11 @@
           <span class="nav-logo-tag">Open Source</span>
         </a>
         <p class="footer-quote">
-          Crafting systems and open-source models at Amal Jyothi College of Engineering. Shared freely under the MIT license.
+          Crafting systems and open-source models at Amal Jyothi College of Engineering. Shared freely under the MIT
+          license.
         </p>
       </div>
-      
+
       <div class="footer-links-col" id="footer-navigation-col">
         <h4 class="footer-title">Directory</h4>
         <ul class="footer-links">
@@ -868,11 +962,12 @@
           <li><a href="#gallery">~/gallery</a></li>
         </ul>
       </div>
-      
+
       <!-- Mini status widget -->
       <div class="footer-links-col" id="footer-terminal-col">
         <h4 class="footer-title">System Status</h4>
-        <div class="footer-terminal" id="footer-terminal-console" style="position: relative; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-card-alt);">
+        <div class="footer-terminal" id="footer-terminal-console"
+          style="position: relative; border: 2px solid var(--border-color); border-radius: 12px; background: var(--bg-card-alt);">
           <div class="footer-terminal-header">
             <span class="footer-terminal-title">status-indicator</span>
           </div>
@@ -885,12 +980,14 @@
         </div>
       </div>
     </div>
-    
+
     <div class="container footer-bottom">
       <span>&copy; 2026 Amal Jyothi College of Engineering FOSS Community.</span>
       <div class="footer-social-badges">
-        <a href="https://github.com/ajce-foss" class="footer-social-badge" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-        <a href="https://discord.gg" class="footer-social-badge" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+        <a href="https://github.com/ajce-foss" class="footer-social-badge" target="_blank"><i
+            class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://discord.gg" class="footer-social-badge" target="_blank"><i class="fa-brands fa-discord"></i>
+          Discord</a>
       </div>
     </div>
   </footer>
@@ -899,8 +996,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
-  
+
   <!-- Main Script file -->
-  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.js?v=1.2"></script>
 </body>
+
 </html>

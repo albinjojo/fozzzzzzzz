@@ -552,12 +552,12 @@ document.addEventListener("DOMContentLoaded", () => {
           const div = document.createElement("div");
           let text = responseLines[lineIndex];
           if (text.startsWith("$") || text.startsWith("  -d")) {
-            div.style.color = "#E87325";
+            div.style.color = "var(--accent-orange-dark)";
           } else if (text.includes("[success]")) {
-            div.style.color = "#a9e050";
+            div.style.color = "var(--accent-green-dark)";
             div.style.fontWeight = "bold";
           } else if (text.includes("Welcome to the team")) {
-            div.style.color = "#E87325";
+            div.style.color = "var(--accent-orange-dark)";
             div.style.fontWeight = "bold";
           }
           div.textContent = text;

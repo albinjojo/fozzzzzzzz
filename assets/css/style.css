@@ -7,8 +7,8 @@
   --bg-card-alt: #fdfbf7;
   
   /* Portfolio Color Accents */
-  --accent-orange: #ff914d;
-  --accent-orange-dark: #E87325;
+  --accent-orange: #e76f51;
+  --accent-orange-dark: #c2410c;
   --accent-green: #D7FF96;
   --accent-green-dark: #a9e050;
   --accent-yellow: #FFE596;
@@ -358,7 +358,7 @@ section {
 }
 .nav-links a {
   text-decoration: none;
-  color: var(--text-secondary);
+  color: #1e293b;
   font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 700;
@@ -437,7 +437,6 @@ section {
   transform: rotate(-45deg) translate(4px, -5px);
 }
 
-/* --- 1. HERO SECTION --- */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -448,7 +447,41 @@ section {
   padding-bottom: 80px;
   position: relative;
   z-index: 2;
-  background-color: var(--bg-base);
+  background-image: url('../images/sky_background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* --- TACTILE TORN PAPER DIVIDER --- */
+.torn-divider {
+  position: absolute;
+  bottom: -5px; /* Pull down to avoid tiny subpixel gaps during scroll */
+  left: 0;
+  width: 100%;
+  height: 60px; /* Elevated height for filter buffer */
+  z-index: 10;
+  pointer-events: none;
+  overflow: visible; /* Let the displacement filter warp beyond viewBox bounds */
+}
+
+.torn-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.torn-shadow {
+  transform: translateY(-4px); /* Soft dark shadow peaking out at the top */
+}
+
+.torn-fibers {
+  transform: translateY(-2px); /* White inner paper fibers border */
+}
+
+.torn-main {
+  transform: translateY(0); /* Main paper face blending with about page base */
 }
 
 .hero-grid {
@@ -542,7 +575,7 @@ section {
 
 .hero-desc {
   font-size: 1.15rem;
-  color: var(--text-secondary);
+  color: #1e293b;
   margin-bottom: 35px;
   max-width: 540px;
   font-weight: 500;
@@ -689,13 +722,42 @@ section {
 }
 
 .hero-dashboard {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1.15fr 0.8fr 1.05fr;
-  gap: 24px;
+  margin-top: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 5;
   width: 100%;
+}
+
+/* --- MALAYALAM BRAND STICKER --- */
+.malayalam-sticker-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 520px;
+  width: 100%;
+  z-index: 2;
+}
+
+.malayalam-sticker {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 0px rgba(17, 17, 17, 0.15));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+}
+
+.malayalam-sticker-wrapper:hover .malayalam-sticker {
+  transform: scale(1.03) rotate(-1deg);
+  filter: drop-shadow(6px 6px 0px rgba(17, 17, 17, 0.25));
+}
+
+@media (max-width: 768px) {
+  .malayalam-sticker-wrapper {
+    max-width: 320px;
+  }
 }
 
 .floating-widget {
@@ -750,23 +812,49 @@ section {
 }
 
 .widget-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  text-align: center;
-  border-left: 8px solid var(--accent-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 0 var(--border-color);
+  padding: 14px 10px;
+  width: auto;
+}
+.widget-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 35px;
+  transition: var(--transition-fast);
+}
+.widget-stat-item:not(:last-child) {
+  border-right: 2px solid var(--border-color);
+}
+@media (max-width: 500px) {
+  .widget-stat-item {
+    padding: 0 18px;
+  }
+}
+@media (max-width: 360px) {
+  .widget-stat-item {
+    padding: 0 10px;
+  }
 }
 .widget-stat-number {
   font-family: var(--font-mono);
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   color: var(--text-primary);
+  line-height: 1.2;
 }
 .widget-stat-label {
   font-size: 0.65rem;
   color: var(--text-secondary);
   text-transform: uppercase;
   font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 /* Floating git activity graph visualization */
@@ -1421,7 +1509,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(245, 242, 235, 0.95);
+  background: rgba(250, 248, 245, 0.95);
   border-top: 2px solid var(--border-color);
   transform: translateY(100%);
   transition: var(--transition-smooth);
