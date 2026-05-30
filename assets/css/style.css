@@ -1160,89 +1160,143 @@ section {
   box-shadow: 1px 1px 0 0 var(--border-color);
 }
 
-/* --- 4. COMMUNITY JOURNEY / TIMELINE --- */
-.timeline-container {
+/* --- 4. FOSS UNITED PARTNERSHIP --- */
+.foss-united {
   position: relative;
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 40px 0;
+  background-color: var(--bg-base);
 }
 
-/* Notebook divider line for timeline */
-.timeline-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: var(--border-color);
-  transform: translateX(-50%);
-  z-index: 1;
+.foss-united-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
+  align-items: stretch;
 }
 
-.timeline-item {
+.foss-united-main-card {
+  padding: 40px;
+  background-color: var(--bg-card);
+  border: 3px solid var(--border-color);
+  border-radius: 18px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 2;
-}
-.timeline-item:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.timeline-node {
-  position: absolute;
-  left: 50%;
-  top: 30px;
-  transform: translate(-50%, -50%);
-  width: 16px;
-  height: 16px;
-  background: var(--accent-yellow);
-  border: 2.5px solid var(--border-color);
-  border-radius: 50%;
-  z-index: 5;
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--border-color);
   transition: var(--transition-smooth);
-  box-shadow: 2px 2px 0 0 var(--border-color);
-}
-.timeline-item:nth-child(2) .timeline-node { background-color: var(--accent-green); }
-.timeline-item:nth-child(3) .timeline-node { background-color: var(--accent-orange); }
-.timeline-item:nth-child(4) .timeline-node { background-color: var(--accent-blue); }
-
-.timeline-item.active .timeline-node {
-  transform: translate(-50%, -50%) scale(1.2);
 }
 
-.timeline-card {
-  width: 44%;
-  padding: 24px;
-  transform: translateY(30px);
-  opacity: 0;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s;
-}
-.timeline-item.active .timeline-card {
-  transform: translateY(0);
-  opacity: 1;
+.foss-united-main-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 0 var(--border-color);
 }
 
-.timeline-date {
+.foss-united-logo-wrapper {
+  margin-bottom: 25px;
+}
+
+.foss-united-badge {
   font-family: var(--font-mono);
+  font-size: 0.65rem;
   font-weight: 700;
-  font-size: 0.75rem;
   color: var(--accent-orange-dark);
-  margin-bottom: 8px;
+  background-color: var(--accent-yellow);
+  border: 1.5px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.timeline-card-title {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-  font-weight: 700;
+.foss-united-heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
-.timeline-card-desc {
+
+.foss-united-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.foss-united-links {
+  margin-top: auto;
+}
+
+.foss-united-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.foss-united-detail-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px;
+  background-color: var(--bg-card-alt);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 0 var(--border-color);
+  transition: var(--transition-tactile);
+}
+
+.foss-united-detail-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0 var(--border-color);
+}
+
+.detail-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.detail-desc {
   font-size: 0.9rem;
   color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .foss-united-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .foss-united-main-card {
+    padding: 30px 20px;
+  }
+  .foss-united-detail-card {
+    padding: 20px;
+    gap: 15px;
+  }
 }
 
 /* --- 5. OUR PEOPLE SECTION --- */
@@ -1280,7 +1334,7 @@ section {
 .people-container-box {
   background-color: var(--bg-card);
   border: 2px solid var(--border-color);
-  border-radius: 0 16px 16px 16px;
+  border-radius: 16px;
   padding: 40px;
   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--border-color);
   position: relative;
@@ -1983,7 +2037,10 @@ section {
 
 @media (max-width: 1024px) {
   .hero {
-    padding-top: 155px; /* Clear fixed navbar + overlapping sticker logo spacing */
+    padding-top: 130px; /* Clear fixed navbar + overlapping sticker logo spacing */
+    padding-bottom: 70px;
+    min-height: auto; /* Let the height adapt to stacked content on mobile */
+    justify-content: flex-start; /* Align content to the top to prevent clipping */
   }
   .nav-status {
     display: none !important; /* Hide status badge on tablet/mobile for nav cleanliness */
@@ -2001,9 +2058,7 @@ section {
     order: -1; /* Pushes the image hanger to the top on mobile/tablet so it is visible on load */
   }
   .hero-dashboard {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 40px;
+    margin-top: 30px; /* Pull the Malayalam logo closer to the description/buttons */
   }
   .about-grid, .join-grid, .footer-grid {
     grid-template-columns: 1fr;
@@ -2046,30 +2101,43 @@ section {
     right: 0;
   }
   
-  .people-toggle-container {
-    flex-wrap: wrap;
+  .people-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
   }
-  .people-tab {
-    padding: 10px 18px;
-    font-size: 0.75rem;
+  .member-card {
+    padding: 16px 10px;
+    border-radius: 10px;
+  }
+  .member-avatar-wrapper {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    padding: 2px;
+  }
+  .member-avatar svg {
+    width: 24px;
+    height: 24px;
+  }
+  .member-name {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+  .member-role {
+    font-size: 0.65rem;
+    padding: 1px 6px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  .member-social-link {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 0 var(--border-color);
   }
   .people-container-box {
     padding: 24px;
-    border-radius: 0 0 16px 16px;
-  }
-  
-  .timeline-line {
-    left: 20px;
-  }
-  .timeline-item {
-    flex-direction: row !important;
-  }
-  .timeline-node {
-    left: 20px;
-  }
-  .timeline-card {
-    width: calc(100% - 60px);
-    margin-left: 60px;
+    border-radius: 16px;
   }
   
   /* Mobile image hanger sizing tweaks to prevent clipping and fit the screen */
@@ -2088,5 +2156,35 @@ section {
   }
   .nav-logo-tag {
     display: none !important; /* Hide logo badge tag on mobile devices to prevent crowding */
+  }
+}
+
+@media (max-width: 480px) {
+  .people-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .people-container-box {
+    padding: 16px;
+  }
+  .member-card {
+    padding: 12px 6px;
+  }
+  .member-avatar-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+  .member-avatar svg {
+    width: 20px;
+    height: 20px;
+  }
+  .member-name {
+    font-size: 0.8rem;
+  }
+  .member-role {
+    font-size: 0.58rem;
+    padding: 1px 4px;
+    margin-bottom: 8px;
   }
 }

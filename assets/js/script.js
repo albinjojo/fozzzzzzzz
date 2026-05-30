@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .from("#hero-scroll-indicator", { opacity: 0, y: -10, duration: 0.6, ease: "power2.out" }, "-=0.2");
 
   // General reveal helper for sections
-  const sections = ["about", "events", "timeline", "people", "partners", "gallery", "join"];
+  const sections = ["about", "events", "foss-united", "people", "partners", "gallery", "join"];
   sections.forEach((sect) => {
     gsap.from(`#${sect}-section-header`, {
       scrollTrigger: {
@@ -380,17 +380,30 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power3.out"
   });
 
-  // --- 9. COMMUNITY TIMELINE TRACKER ---
-  const timelineItems = document.querySelectorAll(".timeline-item");
-  timelineItems.forEach((item) => {
-    gsap.to(item, {
-      scrollTrigger: {
-        trigger: item,
-        start: "top 70%",
-        onEnter: () => item.classList.add("active"),
-        toggleActions: "play none none none"
-      }
-    });
+  // --- 9. FOSS UNITED CARDS REVEAL ---
+  gsap.from(".foss-united-main-card", {
+    scrollTrigger: {
+      trigger: "#foss-united",
+      start: "top 75%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    x: -30,
+    duration: 0.8,
+    ease: "power3.out"
+  });
+
+  gsap.from(".foss-united-detail-card", {
+    scrollTrigger: {
+      trigger: ".foss-united-details",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 25,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power3.out"
   });
 
   // --- 10. SCROLL COUNT-UP STATS ---
@@ -420,51 +433,19 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
-  // --- 11. OUR PEOPLE TOGGLE BUTTONS ---
-  const tabCore = document.getElementById("tab-core");
-  const tabMentors = document.getElementById("tab-mentors");
-  const tabContributors = document.getElementById("tab-contributors");
-  
-  const gridCore = document.getElementById("grid-core");
-  const gridMentors = document.getElementById("grid-mentors");
-  const gridContributors = document.getElementById("grid-contributors");
-
-  const tabs = [tabCore, tabMentors, tabContributors];
-  const grids = [gridCore, gridMentors, gridContributors];
-
-  function toggleGrid(activeTab, activeGrid) {
-    tabs.forEach((tab) => {
-      if (tab) tab.classList.remove("active");
-    });
-    activeTab.classList.add("active");
-
-    grids.forEach((grid) => {
-      if (grid) {
-        grid.classList.add("hidden");
-      }
-    });
-    
-    activeGrid.classList.remove("hidden");
-    setupSpotlightOnCards();
-
-    gsap.from(activeGrid.querySelectorAll(".member-card"), {
-      opacity: 0,
-      y: 25,
-      duration: 0.6,
-      stagger: 0.08,
-      ease: "power2.out"
-    });
-  }
-
-  if (tabCore && gridCore) {
-    tabCore.addEventListener("click", () => toggleGrid(tabCore, gridCore));
-  }
-  if (tabMentors && gridMentors) {
-    tabMentors.addEventListener("click", () => toggleGrid(tabMentors, gridMentors));
-  }
-  if (tabContributors && gridContributors) {
-    tabContributors.addEventListener("click", () => toggleGrid(tabContributors, gridContributors));
-  }
+  // --- 11. OUR PEOPLE REVEAL ---
+  gsap.from(".people-grid .member-card", {
+    scrollTrigger: {
+      trigger: ".people-grid",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 25,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power3.out"
+  });
 
   // --- 12. GALLERY LIGHTBOX MODAL ---
   const lightbox = document.getElementById("gallery-lightbox");

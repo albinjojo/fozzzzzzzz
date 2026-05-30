@@ -9,7 +9,7 @@
     content="Welcome to the student-run FOSS community of Amal Jyothi College of Engineering. We build digital products, collaborate on open source projects, and learn together.">
 
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="./assets/css/style.css?v=1.4">
+  <link rel="stylesheet" href="./assets/css/style.css?v=1.7">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -41,7 +41,7 @@
         <li><a href="#hero" class="active" id="nav-link-hero">Intro</a></li>
         <li><a href="#about" id="nav-link-about">About</a></li>
         <li><a href="#events" id="nav-link-events">Work</a></li>
-        <li><a href="#timeline" id="nav-link-timeline">Journey</a></li>
+        <li><a href="#foss-united" id="nav-link-foss-united">Partnership</a></li>
         <li><a href="#people" id="nav-link-people">Team</a></li>
         <li><a href="#gallery" id="nav-link-gallery">Gallery</a></li>
         <li><a href="#join" id="nav-link-join">Contact</a></li>
@@ -407,61 +407,63 @@
     </div>
   </section>
 
-  <!-- 4. COMMUNITY JOURNEY / TIMELINE -->
-  <section class="timeline" id="timeline">
+  <!-- 4. FOSS UNITED PARTNERSHIP -->
+  <section class="foss-united" id="foss-united">
     <div class="grid-overlay opacity-10"></div>
     <div class="container">
-      <div class="section-header" id="timeline-section-header">
-        <div class="section-badge">04. Milestones</div>
-        <h2 class="section-title">Where we have <span class="serif-italic"
-            style="color: var(--accent-orange-dark);">shipped</span>.</h2>
-        <p class="section-subtitle">A simple timeline tracking the evolution of the FOSS community at Amal Jyothi.</p>
+      <div class="section-header" id="foss-united-section-header">
+        <div class="section-badge">04. Partnership</div>
+        <h2 class="section-title">Affiliated with <span class="serif-italic"
+            style="color: var(--accent-orange-dark);">FOSS United</span>.</h2>
+        <p class="section-subtitle">Promoting Free and Open Source Software (FOSS) on campus in collaboration with FOSS United.</p>
       </div>
 
-      <div class="timeline-container">
-        <div class="timeline-line"></div>
-
-        <!-- Milestone 1 -->
-        <div class="timeline-item" id="timeline-item-1">
-          <div class="timeline-node"></div>
-          <div class="tactile-card timeline-card">
-            <div class="timeline-date">JANUARY 2025</div>
-            <h3 class="timeline-card-title">Community Kickoff</h3>
-            <p class="timeline-card-desc">Launched by a group of systems and web engineering students. Established our
-              flat hierarchy culture and peer mentorship path.</p>
+      <div class="foss-united-grid">
+        <!-- Main Card -->
+        <div class="tactile-card foss-united-main-card">
+          <div class="foss-united-logo-wrapper">
+            <span class="foss-united-badge">FOUNDATION PARTNER</span>
+            <h3 class="foss-united-heading">FOSS United</h3>
+          </div>
+          <p class="foss-united-desc">
+            FOSS United is a non-profit foundation promoting the creation and usage of Free and Open Source Software in India.
+            As an active campus chapter, we build open tools, mentor students to participate in national hacks, and host regular meetups.
+          </p>
+          <div class="foss-united-links">
+            <a href="https://fossunited.org" target="_blank" class="btn btn-secondary">
+              <span>Visit FOSS United</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
           </div>
         </div>
 
-        <!-- Milestone 2 -->
-        <div class="timeline-item" id="timeline-item-2">
-          <div class="timeline-node"></div>
-          <div class="tactile-card timeline-card">
-            <div class="timeline-date">APRIL 2025</div>
-            <h3 class="timeline-card-title">First Linux Install Fest</h3>
-            <p class="timeline-card-desc">Instructed over 60 students on disk partitions, custom boot managers, and
-              configuring dotfile setups in the computer science labs.</p>
+        <!-- Detail Cards -->
+        <div class="foss-united-details">
+          <!-- Card 1 -->
+          <div class="tactile-card foss-united-detail-card" style="background-color: var(--bg-card-alt);">
+            <div class="detail-icon" style="background: var(--accent-green);"><i class="fa-solid fa-handshake-angle"></i></div>
+            <div class="detail-content">
+              <h4 class="detail-title">Grants & Funding</h4>
+              <p class="detail-desc">Get access to financial support and developer grants directly from FOSS United to build your open-source projects and ideas.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Milestone 3 -->
-        <div class="timeline-item" id="timeline-item-3">
-          <div class="timeline-node"></div>
-          <div class="tactile-card timeline-card">
-            <div class="timeline-date">OCTOBER 2025</div>
-            <h3 class="tactile-card-title">Hacknight v1.0</h3>
-            <p class="timeline-card-desc">Our inaugural 24-hour overnight code sprint. Generated 15 prototypes built
-              completely by student teams.</p>
+          <!-- Card 2 -->
+          <div class="tactile-card foss-united-detail-card" style="background-color: var(--bg-card-alt);">
+            <div class="detail-icon" style="background: var(--accent-blue);"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="detail-content">
+              <h4 class="detail-title">Mentorship</h4>
+              <p class="detail-desc">Connect with seasoned kernel developers, open-source maintainers, and tech leaders in the FOSS United network.</p>
+            </div>
           </div>
-        </div>
 
-        <!-- Milestone 4 -->
-        <div class="timeline-item" id="timeline-item-4">
-          <div class="timeline-node"></div>
-          <div class="tactile-card timeline-card">
-            <div class="timeline-date">FEBRUARY 2026</div>
-            <h3 class="timeline-card-title">TinkerSpace Cooperation</h3>
-            <p class="timeline-card-desc">Merged networks with TinkerHub to run unified, hands-on engineering programs
-              across domains like web dev, embedded, and product design.</p>
+          <!-- Card 3 -->
+          <div class="tactile-card foss-united-detail-card" style="background-color: var(--bg-card-alt);">
+            <div class="detail-icon" style="background: var(--accent-yellow);"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="detail-content">
+              <h4 class="detail-title">Meetups & Conferences</h4>
+              <p class="detail-desc">Represent the community at national events like IndiaFOSS, regional FOSS meetups, and local Hackdays hosted at Amal Jyothi.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -472,23 +474,13 @@
   <section class="people" id="people">
     <div class="container">
       <div class="section-header" id="people-section-header">
-        <div class="section-badge">05. People</div>
-        <h2 class="section-title">The <span class="serif-italic" style="color: var(--accent-orange-dark);">minds</span>
-          behind the community.</h2>
-        <p class="section-subtitle">Students, advisors, and contributors coordinating events and building our campus
-          open code repositories.</p>
-      </div>
-
-      <!-- Portfolio-style Folder Tab Selectors -->
-      <div class="people-toggle-container">
-        <button class="people-tab active" id="tab-core">01. Core Team</button>
-        <button class="people-tab" id="tab-mentors">02. Mentors</button>
-        <button class="people-tab" id="tab-contributors">03. Contributors</button>
+        <div class="section-badge">05. Team</div>
+        <h2 class="section-title">FOSS United <span class="serif-italic" style="color: var(--accent-orange-dark);">AJCE</span></h2>
+        <p class="section-subtitle">Meet the organizers and core volunteers driving the open-source community at Amal Jyothi.</p>
       </div>
 
       <div class="people-container-box">
-        <!-- Core Team Grid -->
-        <div class="people-grid" id="grid-core">
+        <div class="people-grid">
           <!-- Member 1 -->
           <div class="member-card" id="member-card-1">
             <div class="member-avatar-wrapper">
@@ -499,7 +491,7 @@
               </div>
             </div>
             <h3 class="member-name">Albin Jojo</h3>
-            <div class="member-role">FOSS Lead / AI Engineer</div>
+            <div class="member-role">Core Team Member</div>
             <div class="member-socials">
               <a href="https://github.com/albinjojo" class="member-social-link" target="_blank"><i
                   class="fa-brands fa-github"></i></a>
@@ -517,8 +509,8 @@
                 </svg>
               </div>
             </div>
-            <h3 class="member-name">Riya Elsa</h3>
-            <div class="member-role">Co-Lead / Web Architect</div>
+            <h3 class="member-name">Nevin Benny</h3>
+            <div class="member-role">Marketing</div>
             <div class="member-socials">
               <a href="https://github.com" class="member-social-link" target="_blank"><i
                   class="fa-brands fa-github"></i></a>
@@ -536,8 +528,8 @@
                 </svg>
               </div>
             </div>
-            <h3 class="member-name">Abel Tom</h3>
-            <div class="member-role">Events / UI Designer</div>
+            <h3 class="member-name">Joshua Varghese</h3>
+            <div class="member-role">Core Team Member</div>
             <div class="member-socials">
               <a href="https://github.com" class="member-social-link" target="_blank"><i
                   class="fa-brands fa-github"></i></a>
@@ -555,29 +547,8 @@
                 </svg>
               </div>
             </div>
-            <h3 class="member-name">Devik P.</h3>
-            <div class="member-role">Systems / DevOps</div>
-            <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i
-                  class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i
-                  class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mentors Grid -->
-        <div class="people-grid hidden" id="grid-mentors">
-          <div class="member-card">
-            <div class="member-avatar-wrapper">
-              <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                </svg>
-              </div>
-            </div>
-            <h3 class="member-name">Prof. Jerin Thomas</h3>
-            <div class="member-role">Faculty Representative</div>
+            <h3 class="member-name">Nandana Pramod</h3>
+            <div class="member-role">Volunteer</div>
             <div class="member-socials">
               <a href="https://github.com" class="member-social-link" target="_blank"><i
                   class="fa-brands fa-github"></i></a>
@@ -586,7 +557,8 @@
             </div>
           </div>
 
-          <div class="member-card">
+          <!-- Member 5 -->
+          <div class="member-card" id="member-card-5">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -594,8 +566,8 @@
                 </svg>
               </div>
             </div>
-            <h3 class="member-name">Arun Michael</h3>
-            <div class="member-role">Technical Mentor (Ex-RedHat)</div>
+            <h3 class="member-name">Jewel Biju</h3>
+            <div class="member-role">Content Writer</div>
             <div class="member-socials">
               <a href="https://github.com" class="member-social-link" target="_blank"><i
                   class="fa-brands fa-github"></i></a>
@@ -603,11 +575,9 @@
                   class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
-        </div>
 
-        <!-- Contributors Grid -->
-        <div class="people-grid hidden" id="grid-contributors">
-          <div class="member-card">
+          <!-- Member 6 -->
+          <div class="member-card" id="member-card-6">
             <div class="member-avatar-wrapper">
               <div class="member-avatar">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -615,43 +585,13 @@
                 </svg>
               </div>
             </div>
-            <h3 class="member-name">Gokul K.</h3>
-            <div class="member-role">Web Developer</div>
+            <h3 class="member-name">Abhijith Ashokan</h3>
+            <div class="member-role">Graphic Designer</div>
             <div class="member-socials">
               <a href="https://github.com" class="member-social-link" target="_blank"><i
                   class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-
-          <div class="member-card">
-            <div class="member-avatar-wrapper">
-              <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                </svg>
-              </div>
-            </div>
-            <h3 class="member-name">Anjali Rose</h3>
-            <div class="member-role">Graphics & Media</div>
-            <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i
-                  class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-
-          <div class="member-card">
-            <div class="member-avatar-wrapper">
-              <div class="member-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                </svg>
-              </div>
-            </div>
-            <h3 class="member-name">Nandu Krishnan</h3>
-            <div class="member-role">Docs Maintainer</div>
-            <div class="member-socials">
-              <a href="https://github.com" class="member-social-link" target="_blank"><i
-                  class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com" class="member-social-link" target="_blank"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
@@ -957,7 +897,7 @@
           <li><a href="#hero">~/intro</a></li>
           <li><a href="#about">~/about</a></li>
           <li><a href="#events">~/featured_work</a></li>
-          <li><a href="#timeline">~/journey</a></li>
+          <li><a href="#foss-united">~/foss-united</a></li>
           <li><a href="#people">~/team</a></li>
           <li><a href="#gallery">~/gallery</a></li>
         </ul>
@@ -998,7 +938,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 
   <!-- Main Script file -->
-  <script src="./assets/js/script.js?v=1.2"></script>
+  <script src="./assets/js/script.js?v=1.3"></script>
 </body>
 
 </html>
