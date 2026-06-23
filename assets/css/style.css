@@ -1035,7 +1035,7 @@ section {
 .event-img-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/10;
+  height: 210px;
   overflow: hidden;
   border-bottom: 2px solid var(--border-color);
 }
@@ -1077,6 +1077,8 @@ section {
   gap: 8px;
   flex-wrap: wrap;
   margin-bottom: 16px;
+  min-height: 58px;
+  align-items: flex-start;
 }
 .event-tag {
   font-family: var(--font-mono);
@@ -1478,67 +1480,84 @@ section {
 }
 
 /* --- 8. GALLERY SECTION --- */
+.gallery {
+  background-image: url('../images/sky_background.jpg');
+  background-size: cover;
+  background-position: center;
+  border-bottom: none;
+}
+.partners {
+  border-bottom: none;
+}
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 20px;
 }
 
+.gallery-item-wrapper {
+  transition: var(--transition-smooth);
+  transform: rotate(var(--rand-rot, 0deg));
+  position: relative;
+}
+.gallery-item-wrapper:hover {
+  transform: rotate(0deg) scale(1.04);
+  z-index: 10;
+}
+
 .gallery-item {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 14px;
+  border-radius: 6px;
   overflow: hidden;
   border: 2px solid var(--border-color);
   box-shadow: 4px 4px 0 0 var(--border-color);
   transition: var(--transition-tactile);
   cursor: none;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
 }
-.gallery-item:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 0 var(--border-color);
+.gallery-item-wrapper:hover .gallery-item {
+  box-shadow: 8px 8px 0 0 var(--border-color);
 }
 .gallery-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover .gallery-img {
+  transform: scale(1.02);
 }
 
-.gallery-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.window-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--bg-card-alt);
+  border-bottom: 2px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--text-primary);
+  user-select: none;
+}
+.window-title {
+  letter-spacing: 0.05em;
+}
+.window-controls {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+.window-body {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(250, 248, 245, 0.95);
-  border-top: 2px solid var(--border-color);
-  transform: translateY(100%);
-  transition: var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px;
-  z-index: 2;
-  text-align: center;
-}
-
-.gallery-item:hover .gallery-overlay {
-  transform: translateY(0);
-}
-
-.gallery-caption {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.gallery-sub {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent-orange-dark);
-  font-weight: 700;
 }
 
 /* Lightbox Modal (Lightbox overlay) */
@@ -1622,10 +1641,8 @@ section {
 
 /* --- 9. JOIN COMMUNITY SECTION --- */
 .join-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 50px;
-  align-items: center;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .join-info {
@@ -1671,8 +1688,9 @@ section {
   color: var(--text-primary);
   box-shadow: 1.5px 1.5px 0 0 var(--border-color);
 }
-.join-link-item:nth-child(2) .join-link-icon { background-color: var(--accent-green); }
-.join-link-item:nth-child(3) .join-link-icon { background-color: var(--accent-blue); }
+.join-link-item:nth-child(2n) .join-link-icon { background-color: var(--accent-green); }
+.join-link-item:nth-child(3n) .join-link-icon { background-color: var(--accent-blue); }
+.join-link-item:nth-child(4n) .join-link-icon { background-color: var(--accent-orange); }
 
 .join-link-title {
   font-family: var(--font-heading);
@@ -1849,7 +1867,7 @@ section {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 60px;
   margin-bottom: 50px;
 }
@@ -2024,26 +2042,7 @@ section {
     font-size: 2.2rem;
   }
   .about-features {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .about-card {
-    padding: 16px 12px;
-    border-radius: 12px;
-  }
-  .about-card-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-    margin-bottom: 12px;
-  }
-  .about-card-title {
-    font-size: 1rem;
-    margin-bottom: 6px;
-  }
-  .about-card-desc {
-    font-size: 0.75rem;
-    line-height: 1.45;
+    grid-template-columns: 1fr;
   }
   
   .hamburger {
