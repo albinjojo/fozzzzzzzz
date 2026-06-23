@@ -27,33 +27,6 @@ The application is built using a Neo-Brutalist design language:
 
 ---
 
-## Directory Structure
-
-```text
-fossajce/
-├── index.html                   # Main HTML document
-├── README.md                    # Project documentation (this file)
-└── assets/                      # Static assets
-    ├── css/
-    │   └── style.css            # Layout and component styles
-    ├── js/
-    │   └── script.js            # Lightbox modal, animations, and custom cursor logic
-    └── images/                  # Project imagery, branding, and backgrounds
-        ├── 1734496546031.jpg    # 3D Printing workshop capture
-        ├── image_1782242737194.jpg # Maker space activity capture
-        ├── git and github workshop.png # Git workshop cover image
-        ├── ajce_college_building.png # AJCE campus graphic
-        ├── foss_ajce_malayalam.png # Malayalam community logo typography
-        ├── sky_background.jpg   # Sky texture image used in layouts
-        ├── college_event_1.jpg  # Wikimedia community meet photograph
-        ├── college_event_2.jpg  # Technical seminar photograph
-        ├── college_event_3.jpg  # Wikidata presentation session
-        ├── college_event_4.jpg  # Hacking session photograph
-        └── college_event_5.jpg  # Technical summit photograph
-```
-
----
-
 ## Technology Stack
 
 * **Markup:** Semantic HTML5
